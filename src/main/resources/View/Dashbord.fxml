@@ -29,39 +29,39 @@
       </Label>
 
         <!-- Buttons -->
-        <Button fx:id="btnLogin" mnemonicParsing="false" onAction="#onLoginClick" prefHeight="38.0" prefWidth="195.0" style="-fx-background-color: #1e3799; -fx-background-radius: 10; -fx-border-color: #b6ff17; -fx-border-radius: 10;" text="Login" textFill="#b6ff17">
+        <Button fx:id="btnLogin" mnemonicParsing="false" onAction="#onLoginClick" prefHeight="38.0" prefWidth="195.0" style="-fx-background-color: #1e3799; -fx-background-radius: 10; -fx-border-color: #b6ff17; -fx-border-radius: 10;" text="User" textFill="#b6ff17">
             <font>
                 <Font name="System Bold Italic" size="16.0" />
             </font>
         </Button>
 
-        <Button fx:id="btnRegister" mnemonicParsing="false" onAction="#onRegisterClick" prefHeight="38.0" prefWidth="195.0" style="-fx-background-color: #1e3799; -fx-background-radius: 10; -fx-border-color: #ffffff; -fx-border-radius: 10;" text="Register" textFill="WHITE">
+        <Button fx:id="btnRegister" mnemonicParsing="false" onAction="#onRegisterClick" prefHeight="38.0" prefWidth="195.0" style="-fx-background-color: #1e3799; -fx-background-radius: 10; -fx-border-color: #ffffff; -fx-border-radius: 10;" text="Course" textFill="WHITE">
             <font>
                 <Font name="System Bold Italic" size="16.0" />
             </font>
         </Button>
 
-        <Button fx:id="btnForgotPassword" mnemonicParsing="false" onAction="#onForgotPasswordClick" prefHeight="40.0" prefWidth="160.0" style="-fx-background-color: #1e3799; -fx-background-radius: 10; -fx-border-color: #ffffff; -fx-border-radius: 10;" text="Forgot Password" textFill="WHITE">
+        <Button fx:id="btnForgotPassword" mnemonicParsing="false" onAction="#onForgotPasswordClick" prefHeight="40.0" prefWidth="160.0" style="-fx-background-color: #1e3799; -fx-background-radius: 10; -fx-border-color: #ffffff; -fx-border-radius: 10;" text="Custormers" textFill="WHITE">
             <font>
                 <Font name="System Bold Italic" size="16.0" />
             </font>
         </Button>
-      <Button fx:id="btnForgotPassword1" mnemonicParsing="false" onAction="#onForgotPasswordClick" prefHeight="40.0" prefWidth="160.0" style="-fx-background-color: #1e3799; -fx-background-radius: 10; -fx-border-color: #ffffff; -fx-border-radius: 10;" text="Forgot Password" textFill="WHITE">
+      <Button fx:id="btnForgotPassword1" mnemonicParsing="false" onAction="#onForgotPasswordClick" prefHeight="40.0" prefWidth="160.0" style="-fx-background-color: #1e3799; -fx-background-radius: 10; -fx-border-color: #ffffff; -fx-border-radius: 10;" text="Lesson Scheduling" textFill="WHITE">
          <font>
             <Font name="System Bold Italic" size="16.0" />
          </font>
       </Button>
-      <Button fx:id="btnForgotPassword2" mnemonicParsing="false" onAction="#onForgotPasswordClick" prefHeight="40.0" prefWidth="160.0" style="-fx-background-color: #1e3799; -fx-background-radius: 10; -fx-border-color: #ffffff; -fx-border-radius: 10;" text="Forgot Password" textFill="WHITE">
+      <Button fx:id="btnForgotPassword2" mnemonicParsing="false" onAction="#onForgotPasswordClick" prefHeight="40.0" prefWidth="160.0" style="-fx-background-color: #1e3799; -fx-background-radius: 10; -fx-border-color: #ffffff; -fx-border-radius: 10;" text="Instructor" textFill="WHITE">
          <font>
             <Font name="System Bold Italic" size="16.0" />
          </font>
       </Button>
-      <Button fx:id="btnForgotPassword3" mnemonicParsing="false" onAction="#onForgotPasswordClick" prefHeight="40.0" prefWidth="160.0" style="-fx-background-color: #1e3799; -fx-background-radius: 10; -fx-border-color: #ffffff; -fx-border-radius: 10;" text="Forgot Password" textFill="WHITE">
+      <Button fx:id="btnForgotPassword3" mnemonicParsing="false" onAction="#onForgotPasswordClick" prefHeight="40.0" prefWidth="160.0" style="-fx-background-color: #1e3799; -fx-background-radius: 10; -fx-border-color: #ffffff; -fx-border-radius: 10;" text="Payment" textFill="WHITE">
          <font>
             <Font name="System Bold Italic" size="16.0" />
          </font>
       </Button>
-      <Button fx:id="btnForgotPassword4" mnemonicParsing="false" onAction="#onForgotPasswordClick" prefHeight="40.0" prefWidth="160.0" style="-fx-background-color: #1e3799; -fx-background-radius: 10; -fx-border-color: #ffffff; -fx-border-radius: 10;" text="Forgot Password" textFill="WHITE">
+      <Button fx:id="btnForgotPassword4" mnemonicParsing="false" onAction="#onForgotPasswordClick" prefHeight="40.0" prefWidth="160.0" style="-fx-background-color: #1e3799; -fx-background-radius: 10; -fx-border-color: #ffffff; -fx-border-radius: 10;" text="Logout" textFill="WHITE">
          <font>
             <Font name="System Bold Italic" size="16.0" />
          </font>
