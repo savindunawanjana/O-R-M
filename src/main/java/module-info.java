@@ -14,6 +14,7 @@ module edu.project.lernessschool.demo {
 //    requires static lombok;
     requires jdk.compiler;
     requires java.desktop;
+    requires javafx.graphics;
 //    requires java.mail;
 //    requires net.sf.jasperreports.core;
 //    requires batik.anim;

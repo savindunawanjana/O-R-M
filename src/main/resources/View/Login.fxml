@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
@@ -11,51 +12,68 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="979.0" prefWidth="1409.0" style="-fx-background-color: &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;?import javafx.scene.image.Image?&gt;&lt;?import javafx.scene.image.ImageView?&gt;&lt;ImageView fitHeight=&quot;1075.0&quot; fitWidth=&quot;1627.0&quot; pickOnBounds=&quot;true&quot; preserveRatio=&quot;true&quot; xmlns=&quot;http://javafx.com/javafx/23.0.1&quot; xmlns:fx=&quot;http://javafx.com/fxml/1&quot;&gt;   &lt;image&gt;      &lt;Image url=&quot;@../imege/loginpageImege.png&quot; /&gt;   &lt;/image&gt;&lt;/ImageView&gt;;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.project.lernessschool.demo.Controller.Login">
+<AnchorPane fx:id="AnchorpaneId" prefHeight="979.0" prefWidth="1409.0" style="-fx-background-color:&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;?import javafx.scene.image.Image?&gt;&lt;?import javafx.scene.image.ImageView?&gt;&lt;ImageView fitHeight=&quot;1075.0&quot; fitWidth=&quot;1627.0&quot; pickOnBounds=&quot;true&quot; preserveRatio=&quot;true&quot; xmlns=&quot;http://javafx.com/javafx/23.0.1&quot; xmlns:fx=&quot;http://javafx.com/fxml/1&quot;&gt;   &lt;image&gt;      &lt;Image url=&quot;@../imege/loginpageImege.png&quot; /&gt;   &lt;/image&gt;&lt;/ImageView&gt;;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.project.lernessschool.demo.Controller.Login">
 
     <children>
-      <ImageView fitHeight="1283.0" fitWidth="1952.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../imege/loginpageImege.png" />
-         </image></ImageView>
-      <HBox layoutY="110.0" prefHeight="622.0" prefWidth="1938.0" style="-fx-background-color: #CCE4E800;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-13.0">
-         <children>
-            <Label prefHeight="547.0" prefWidth="71.0" style="-fx-background-color: #CCE4E800;" />
-              <!-- Center Card -->
-              <VBox alignment="CENTER" prefHeight="653.0" prefWidth="808.0" spacing="15" style="-fx-background-color: #DC8BE080; -fx-background-radius: 30; -fx-padding: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 15, 0, 0, 5); -fx-border-color: FF0066; -fx-border-width: 1; -fx-border-radius: 30;">
-               <ImageView fitHeight="184.0" fitWidth="281.0" pickOnBounds="true" preserveRatio="true">
-                  <image>
-                     <Image url="@../imege/car-Logo.png" />
-                  </image>
-               </ImageView>
-      
-                        <!-- Title -->
-                  <Label prefHeight="105.0" prefWidth="257.0" style="-fx-font-size: 40px; -fx-font-weight: bold; -fx-text-fill: #1e3799;" text="       LOGIN">
-                  <font>
-                     <Font size="1.0" />
-                  </font></Label>
-      
-                        <!-- Username -->
-                  <TextField fx:id="txtUsername" prefHeight="34.0" prefWidth="826.0" promptText="Username" style="-fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #bdc3c7;" />
-      
-                        <!-- Password -->
-                  <PasswordField fx:id="txtPassword" prefHeight="33.0" prefWidth="776.0" promptText="Password" style="-fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #bdc3c7;" />
-      
-                        <!-- Buttons -->
-                  <HBox alignment="CENTER" spacing="10">
-                  <Label prefHeight="66.0" prefWidth="476.0" />
-                      <Button fx:id="btnLogin" onAction="#handleLoginAction" prefHeight="33.0" prefWidth="151.0" style="-fx-background-color: #1e3799; -fx-text-fill: white; -fx-background-radius: 8;" text="Login" />
-                  </HBox>
-               <HBox prefHeight="28.0" prefWidth="578.0">
-                  <children>
-                     <Label prefHeight="41.0" prefWidth="550.0" />
-                         <Button fx:id="btnCancel" onAction="#handleCancelAction" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-background-radius: 8;" text="Cancel" />
-                  </children>
-               </HBox>
-      
-                    </VBox>
-            <Label prefHeight="227.0" prefWidth="269.0" style="-fx-background-color: #CCE4E800;" />
-         </children>
-      </HBox>
+        <ImageView fitHeight="1283.0" fitWidth="1952.0" opacity="0.92" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../imege/loginpageImege.png" />
+            </image></ImageView>
+        <HBox layoutY="110.0" prefHeight="622.0" prefWidth="1938.0" style="-fx-background-color: #CCE4E800;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-13.0">
+            <children>
+                <Label prefHeight="547.0" prefWidth="71.0" style="-fx-background-color: #CCE4E800;" />
+                <!-- Center Card -->
+                <VBox alignment="CENTER" prefHeight="653.0" prefWidth="808.0" spacing="15" style="-fx-background-color: #DC8BE080; -fx-background-radius: 30; -fx-padding: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 15, 0, 0, 5); -fx-border-color: FF0066; -fx-border-width: 1; -fx-border-radius: 30;">
+                    <ImageView fitHeight="184.0" fitWidth="281.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../imege/car-Logo.png" />
+                        </image>
+                    </ImageView>
+
+                    <!-- Title -->
+                    <Label prefHeight="105.0" prefWidth="257.0" style="-fx-font-size: 40px; -fx-font-weight: bold; -fx-text-fill: #1e3799;" text="       LOGIN" textFill="#2a2c18">
+                        <font>
+                            <Font size="1.0" />
+                        </font></Label>
+
+                    <!-- Username -->
+                    <TextField fx:id="txtUsername" prefHeight="34.0" prefWidth="826.0" promptText="Username" style="-fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #bdc3c7;" />
+
+                    <!-- Password -->
+                    <PasswordField fx:id="passwordfilId" prefHeight="27.0" prefWidth="772.0" promptText="Password" style="-fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #bdc3c7;" />
+                    <Button fx:id="showPasswordButten" mnemonicParsing="false" onAction="#showPasswordButtenONaction" style="-fx-background-color: #DC8BE080;" text="Show password" textFill="#a80712fa">
+                        <VBox.margin>
+                            <Insets left="600.0" />
+                        </VBox.margin>
+                        <font>
+                            <Font name="System Bold" size="13.0" />
+                        </font>
+                    </Button>
+                    <Label fx:id="FrogatpasswordLableId" onMouseClicked="#FrogatpasswordLableIdOnAction" prefHeight="42.0" prefWidth="179.0" text="  Forgot password ?" textFill="#2121da">
+                        <VBox.margin>
+                            <Insets left="600.0" />
+                        </VBox.margin>
+                        <font>
+                            <Font name="System Bold" size="16.0" />
+                        </font>
+                    </Label>
+
+                    <!-- Buttons -->
+                    <HBox alignment="CENTER" spacing="10">
+                        <Label prefHeight="102.0" prefWidth="0.0" />
+                        <Button fx:id="btnLogin" onAction="#handleLoginAction" prefHeight="33.0" prefWidth="151.0" style="-fx-background-color: #1e3799; -fx-text-fill: white; -fx-background-radius: 8;" text="Login" />
+                    </HBox>
+                    <HBox prefHeight="53.0" prefWidth="765.0">
+                        <children>
+                            <Label prefHeight="72.0" prefWidth="313.0" />
+                            <Button fx:id="btnCancel" onAction="#handleCancelAction" prefHeight="42.0" prefWidth="149.0" style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-background-radius: 8;" text="Cancel" />
+                        </children>
+                    </HBox>
+
+                </VBox>
+                <Label prefHeight="227.0" prefWidth="269.0" style="-fx-background-color: #CCE4E800;" />
+            </children>
+        </HBox>
+        <TextField fx:id="textfildId" layoutX="90.0" layoutY="468.0" prefHeight="28.0" prefWidth="768.0" promptText="text fild" style="-fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #bdc3c7; -fx-background-color: ;" />
     </children>
 </AnchorPane>
