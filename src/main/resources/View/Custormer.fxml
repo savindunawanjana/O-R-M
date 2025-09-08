@@ -83,7 +83,7 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                     <children>
-                        <Label prefHeight="49.0" prefWidth="239.0" text="Custormer Id            :" textFill="#ffdd59">
+                        <Label prefHeight="49.0" prefWidth="239.0" text="Student Id            :" textFill="#ffdd59">
                             <font>
                                 <Font name="System Bold" size="19.0" />
                             </font></Label>
@@ -91,7 +91,7 @@
                         <Label GridPane.rowIndex="2" />
                         <TextField fx:id="txtCustormerNumberId" prefHeight="36.0" prefWidth="166.0" promptText="Password" style="-fx-border-color: #0046FF; -fx-border-width: 0 0 2 0; -fx-background-color: #dff9fb;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <TextField fx:id="txtEmailId" prefHeight="34.0" prefWidth="166.0" promptText="User name" style="-fx-border-color: #0046FF; -fx-border-width: 0 0 2 0; -fx-background-color: #dff9fb;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <Label prefHeight="49.0" prefWidth="240.0" text="C-Number                  :" textFill="#ffdd59" GridPane.rowIndex="1">
+                        <Label prefHeight="49.0" prefWidth="240.0" text="S-Number                  :" textFill="#ffdd59" GridPane.rowIndex="1">
                             <font>
                                 <Font name="System Bold" size="19.0" />
                             </font></Label>
@@ -138,14 +138,14 @@
             </GridPane>
             </children>
         </HBox>
-        <Label layoutX="336.0" layoutY="14.0" prefHeight="60.0" prefWidth="935.0" text="                                             Custormer Manegement ✅✅" textAlignment="CENTER" textFill="#192ad1" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="14.0">
+        <Label layoutX="336.0" layoutY="14.0" prefHeight="60.0" prefWidth="935.0" text="                                             Student Manegement ✅✅" textAlignment="CENTER" textFill="#192ad1" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="14.0">
             <font>
                 <Font name="System Bold" size="46.0" />
             </font></Label>
       <HBox alignment="CENTER" layoutX="308.0" layoutY="458.0" prefHeight="91.0" prefWidth="1533.0" spacing="20.0">
          <children>
             <Label prefHeight="43.0" prefWidth="769.0" />
-            <Button fx:id="btnAddToCart" layoutX="166.0" layoutY="10.0" mnemonicParsing="false" onAction="#BtnAddtocartOnAction" prefHeight="42.0" prefWidth="106.0" style="-fx-background-color: #26DE81;" text="Add To cart" textFill="WHITE">
+            <Button fx:id="btnAddToCart" layoutX="166.0" layoutY="10.0" mnemonicParsing="false" onAction="#BtnAddtocartOnAction" prefHeight="42.0" prefWidth="106.0" style="-fx-background-color: #26DE81;" text="Add To Table" textFill="WHITE">
                <font>
                   <Font name="Calibri Bold" size="13.0" />
                </font>

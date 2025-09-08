@@ -43,12 +43,12 @@ public class Dashbord {
 
     public void onActionLessonSchedulingButten(ActionEvent actionEvent) {
 
-        //        navigetion();
+        navigate("/View/LessionShedul.fxml");
 
     }
 
     public void onActionInstructorbtn(ActionEvent actionEvent) {
-        //        navigetion();
+        navigate("/View/Instructor.fxml");
 
     }
 

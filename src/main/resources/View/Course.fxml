@@ -27,7 +27,7 @@
         </ImageView>
 
         <!-- Title -->
-        <Label layoutY="20.0" prefHeight="60.0" prefWidth="935.0" text="                                                           Course Management 🎓" textAlignment="CENTER" textFill="#192ad1" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0">
+        <Label layoutY="20.0" prefHeight="60.0" prefWidth="935.0" text="                                          Course Management 🎓" textAlignment="CENTER" textFill="#192ad1" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0">
             <font>
                 <Font name="System Bold" size="46.0" />
             </font>
@@ -36,11 +36,12 @@
         <!-- Input Form -->
         <HBox layoutX="124.0" layoutY="114.0" prefHeight="301.0" prefWidth="1718.0" AnchorPane.leftAnchor="124.0" AnchorPane.rightAnchor="102.0" AnchorPane.topAnchor="114.0">
             <children>
-                <GridPane prefHeight="320.0" prefWidth="1642.0">
+                <GridPane prefHeight="330.0" prefWidth="1735.0">
                     <columnConstraints>
-                        <ColumnConstraints prefWidth="200.0" />
-                        <ColumnConstraints prefWidth="600.0" />
-                  <ColumnConstraints prefWidth="600.0" />
+                        <ColumnConstraints maxWidth="214.0" minWidth="0.0" prefWidth="0.0" />
+                        <ColumnConstraints maxWidth="782.0" minWidth="572.0" prefWidth="782.0" />
+                  <ColumnConstraints maxWidth="502.0" minWidth="278.0" prefWidth="293.0" />
+                  <ColumnConstraints maxWidth="744.0" minWidth="520.0" prefWidth="651.0" />
                     </columnConstraints>
                     <rowConstraints>
                         <RowConstraints prefHeight="50.0" />
@@ -48,50 +49,58 @@
                         <RowConstraints prefHeight="50.0" />
                         <RowConstraints prefHeight="50.0" />
                         <RowConstraints prefHeight="50.0" />
+                  <RowConstraints prefHeight="50.0" />
+                  <RowConstraints prefHeight="50.0" />
+                  <RowConstraints prefHeight="50.0" />
+                  <RowConstraints prefHeight="50.0" />
+                  <RowConstraints prefHeight="50.0" />
+                  <RowConstraints prefHeight="50.0" />
                     </rowConstraints>
                     <children>
-                        <Label text="Course ID :" textFill="#ffdd59">
+                        <Label text="Course ID :" textFill="#ffdd59" GridPane.columnIndex="1" GridPane.rowIndex="1">
                             <font>
                                 <Font name="System Bold" size="19.0" />
                             </font>
                         </Label>
-                        <Label fx:id="lblCourseId" prefHeight="41.0" prefWidth="190.0" style="-fx-border-color: #E62727; -fx-border-width: 0 0 2 0;" text="Auto-generated" textFill="#ab8080" GridPane.columnIndex="1" />
-
-                        <Label text="Course Name :" textFill="#ffdd59" GridPane.rowIndex="1">
-                            <font>
-                                <Font name="System Bold" size="19.0" />
-                            </font>
-                        </Label>
-                        <TextField fx:id="txtCourseName" prefHeight="40.0" prefWidth="597.0" promptText="Enter Course Name" style="-fx-border-color: #0046FF; -fx-border-width: 0 0 2 0;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-
-                        <Label text="Course Fee :" textFill="#ffdd59" GridPane.rowIndex="2">
-                            <font>
-                                <Font name="System Bold" size="19.0" />
-                            </font>
-                        </Label>
-                        <TextField fx:id="txtCourseFee" prefHeight="41.0" prefWidth="605.0" promptText="Enter Fee" style="-fx-border-color: #0046FF; -fx-border-width: 0 0 2 0;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-
-                        <Label text="Duration :" textFill="#ffdd59" GridPane.rowIndex="3">
-                            <font>
-                                <Font name="System Bold" size="19.0" />
-                            </font>
-                        </Label>
-                        <TextField fx:id="txtCourseDuration" prefHeight="39.0" prefWidth="607.0" promptText="e.g. 3 Months" style="-fx-border-color: #0046FF; -fx-border-width: 0 0 2 0;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                  <Label prefHeight="39.0" prefWidth="136.0" text="Instructor :" textFill="#ffdd59" GridPane.rowIndex="4">
-                     <font>
-                        <Font name="System Bold" size="19.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="txtInstructorId" prefHeight="55.0" prefWidth="614.0" style="-fx-border-color: #0046FF; -fx-border-width: 0 0 2 0;" text="                                                Savinsu Nawanjana" textFill="#d3e136" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                        <TextField fx:id="txtCourseName" prefHeight="40.0" prefWidth="597.0" promptText="Enter Course Name" style="-fx-border-color: #0046FF; -fx-border-width: 0 0 2 0;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <TextField fx:id="txtCourseFee" prefHeight="41.0" prefWidth="605.0" promptText="Enter Fee" style="-fx-border-color: #0046FF; -fx-border-width: 0 0 2 0;" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                        <TextField fx:id="txtCourseDuration" prefHeight="39.0" prefWidth="607.0" promptText="e.g. 3 Months" style="-fx-border-color: #0046FF; -fx-border-width: 0 0 2 0;" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                  <Label fx:id="txtInstructorId" prefHeight="55.0" prefWidth="614.0" style="-fx-border-color: #0046FF; -fx-border-width: 0 0 2 0;" text="                                                Savinsu Nawanjana" textFill="#d3e136" GridPane.columnIndex="1" GridPane.rowIndex="10">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <ChoiceBox fx:id="choisboxInstrocters" prefHeight="46.0" prefWidth="229.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                  <ChoiceBox fx:id="choisboxInstrocters" prefHeight="46.0" prefWidth="229.0" GridPane.columnIndex="2" GridPane.rowIndex="10">
                      <GridPane.margin>
                         <Insets left="30.0" />
                      </GridPane.margin>
                   </ChoiceBox>
+                  <Label prefHeight="97.0" prefWidth="403.0" style="-fx-background-color: EF7722; -fx-border-width: 0 0 3 0; -fx-border-color: #0046FF;" text="          Speciality" textFill="#364035" GridPane.columnIndex="3" GridPane.rowIndex="10">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblCourseId1" prefHeight="37.0" prefWidth="194.0" style="-fx-border-color: #E62727; -fx-border-width: 0 0 2 0;" text="Auto-generated" textFill="#ab8080" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Label text="Course Name :" textFill="#ffdd59" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="System Bold" size="19.0" />
+                     </font>
+                  </Label>
+                  <Label text="Course Fee :" textFill="#ffdd59" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                     <font>
+                        <Font name="System Bold" size="19.0" />
+                     </font>
+                  </Label>
+                  <Label text="Duration :" textFill="#ffdd59" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                     <font>
+                        <Font name="System Bold" size="19.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="39.0" prefWidth="136.0" text="Instructor :" textFill="#ffdd59" GridPane.columnIndex="1" GridPane.rowIndex="9">
+                     <font>
+                        <Font name="System Bold" size="19.0" />
+                     </font>
+                  </Label>
                     </children>
                 </GridPane>
             </children>

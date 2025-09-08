@@ -25,6 +25,7 @@ public class UserOption {
     public TextField textfildUsername;
     public TextField textfildCnumber;
     public Label lblUserId;
+    public TableColumn coluserEmail;
 
     public void tblemouseClickedEvent(MouseEvent mouseEvent) {
     }
@@ -39,6 +40,14 @@ public class UserOption {
     }
 
     public void btnSaveOnAction(ActionEvent actionEvent) {
+
+
+
+
+
+
+
+
     }
 
 

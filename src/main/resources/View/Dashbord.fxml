@@ -47,7 +47,7 @@
             </font>
         </Button>
 
-        <Button fx:id="btnCustormer" mnemonicParsing="false" onAction="#onActionCusternbutten" prefHeight="40.0" prefWidth="160.0" style="-fx-background-color: #1e3799; -fx-background-radius: 10; -fx-border-color: #ffffff; -fx-border-radius: 10;" text="Custormers" textFill="WHITE">
+        <Button fx:id="btnCustormer" mnemonicParsing="false" onAction="#onActionCusternbutten" prefHeight="40.0" prefWidth="160.0" style="-fx-background-color: #1e3799; -fx-background-radius: 10; -fx-border-color: #ffffff; -fx-border-radius: 10;" text="Students" textFill="WHITE">
             <font>
                 <Font name="System Bold Italic" size="16.0" />
             </font>
