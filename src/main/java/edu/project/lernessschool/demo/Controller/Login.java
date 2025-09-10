@@ -13,6 +13,7 @@ import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import org.mindrot.jbcrypt.BCrypt;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -37,6 +38,9 @@ public class Login implements Initializable {
                 textfildId.getText(),
                 txtUsername.getText()
         );
+
+//        String hashed = BCrypt.hashpw(passwordField.getText(), BCrypt.gensalt());
+
 
                  Boolean rsp  =userpagebo.IsAvelablePasswordForUsername(dto);
 

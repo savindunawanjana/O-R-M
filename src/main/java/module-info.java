@@ -16,7 +16,11 @@ module edu.project.lernessschool.demo {
     requires org.hibernate.orm.core;
 
     requires java.naming;
+    requires jbcrypt;
 //    requires edu.project.lernessschool.demo;
+
+
+//    requires org.mindrot.jbcrypt;// BCrypt module
 
     // Opens packages for reflection
     opens edu.project.lernessschool.demo.Entyty to org.hibernate.orm.core; // Hibernate access
