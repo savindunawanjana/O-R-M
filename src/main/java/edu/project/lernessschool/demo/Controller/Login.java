@@ -1,5 +1,9 @@
 package edu.project.lernessschool.demo.Controller;
 
+import edu.project.lernessschool.demo.Bo.BOFactry;
+import edu.project.lernessschool.demo.Bo.BOtypes;
+import edu.project.lernessschool.demo.Bo.Custom.UserPageBO;
+import edu.project.lernessschool.demo.Dto.LoinDto;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -17,19 +21,35 @@ public class Login implements Initializable {
 
 
     public TextField txtUsername;
-
     public Button btnLogin;
     public Button btnCancel;
     public AnchorPane AnchorpaneId;
-    public PasswordField PasswordfildId;
     public Button showPasswordButten;
     public Label FrogatpasswordLableId;
     public PasswordField passwordfilId;
     public TextField textfildId;
     private boolean array[] ={true};
+    private final UserPageBO userpagebo = BOFactry.getInstance().getBO(BOtypes.USERPAGE);
 
     public void handleLoginAction(ActionEvent actionEvent) {
-        navigate("/View/Dashbord.fxml");
+
+        LoinDto dto = new LoinDto(
+                textfildId.getText(),
+                txtUsername.getText()
+        );
+
+                 Boolean rsp  =userpagebo.IsAvelablePasswordForUsername(dto);
+
+                 if(rsp){
+
+                     navigate("/View/Dashbord.fxml");
+
+                 }
+
+
+
+
+
 
     }
 
