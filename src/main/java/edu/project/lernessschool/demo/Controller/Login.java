@@ -2,7 +2,7 @@ package edu.project.lernessschool.demo.Controller;
 
 import edu.project.lernessschool.demo.Bo.BOFactry;
 import edu.project.lernessschool.demo.Bo.BOtypes;
-import edu.project.lernessschool.demo.Bo.Custom.UserPageBO;
+import edu.project.lernessschool.demo.Bo.Custom.LoginPageBO;
 import edu.project.lernessschool.demo.Dto.LoinDto;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -30,7 +30,7 @@ public class Login implements Initializable {
     public PasswordField passwordfilId;
     public TextField textfildId;
     private boolean array[] ={true};
-    private final UserPageBO userpagebo = BOFactry.getInstance().getBO(BOtypes.USERPAGE);
+    private final LoginPageBO loginpagebo = BOFactry.getInstance().getBO(BOtypes.LOGIN);
 
     public void handleLoginAction(ActionEvent actionEvent) {
 
@@ -39,22 +39,15 @@ public class Login implements Initializable {
                 txtUsername.getText()
         );
 
-//        String hashed = BCrypt.hashpw(passwordField.getText(), BCrypt.gensalt());
+//        String hashed = BCrypt.hashpw(passwordfilId.getText(), BCrypt.gensalt());
 
-
-                 Boolean rsp  =userpagebo.IsAvelablePasswordForUsername(dto);
+                 Boolean rsp  =loginpagebo.IsAvelablePasswordForUsername(dto);
 
                  if(rsp){
 
                      navigate("/View/Dashbord.fxml");
 
                  }
-
-
-
-
-
-
     }
 
     public void handleCancelAction(ActionEvent actionEvent) {
@@ -106,9 +99,6 @@ public class Login implements Initializable {
             array[0] = true;
 
         }
-
-
-
     }
 
     public void FrogatpasswordLableIdOnAction(MouseEvent mouseEvent) {

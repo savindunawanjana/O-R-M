@@ -1,6 +1,6 @@
 package edu.project.lernessschool.demo.Dao;
 
-import edu.project.lernessschool.demo.Bo.Custom.impl.UserPageBOimpl;
+//import edu.project.lernessschool.demo.Bo.Custom.impl.UserPageBOimpl;
 import edu.project.lernessschool.demo.Dao.Custom.Impl.UserDAOImpl;
 
 public class DAOFactory {

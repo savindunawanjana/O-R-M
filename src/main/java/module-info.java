@@ -18,6 +18,7 @@ module edu.project.lernessschool.demo {
     requires java.naming;
     requires jbcrypt;
 //    requires edu.project.lernessschool.demo;
+//    requires edu.project.lernessschool.demo;
 
 
 //    requires org.mindrot.jbcrypt;// BCrypt module

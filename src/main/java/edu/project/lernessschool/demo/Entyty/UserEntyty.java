@@ -9,17 +9,26 @@ import jakarta.persistence.*;
 public class UserEntyty {
 
     @Id
+    private String Userid;
+
+    @Column(nullable = false, unique = true,length = 100)
     private String password;
 
-    private int contact_number;
-    private String email;
-    private String username;
-    private String userroll;
+    @Column(nullable = false, unique = true)
+    private String contact_number;
 
+    @Column(nullable = false, unique = true)
+    private String email;
+
+    @Column(nullable = false, unique = true)
+    private String username;
+
+    private String userroll;
 
     public UserEntyty() {}
 
-    public UserEntyty(String username, String password, String userroll, int contact_number, String email) {
+    public UserEntyty(String Userid,String username, String password, String userroll, String contact_number, String email) {
+        this.Userid = Userid;
         this.username = username;
         this.password = password;
         this.userroll = userroll;
@@ -43,6 +52,14 @@ public class UserEntyty {
         this.username = username;
     }
 
+    public String getUserid() {
+        return Userid;
+    }
+
+    public void setUserid(String userid) {
+        Userid = userid;
+    }
+
     public String getUserroll() {
         return userroll;
     }
@@ -51,11 +68,11 @@ public class UserEntyty {
         this.userroll = userroll;
     }
 
-    public int getContact_number() {
+    public String getContact_number() {
         return contact_number;
     }
 
-    public void setContact_number(int contact_number) {
+    public void setContact_number(String contact_number) {
         this.contact_number = contact_number;
     }
 

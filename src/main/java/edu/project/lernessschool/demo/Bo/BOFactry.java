@@ -1,6 +1,8 @@
 package edu.project.lernessschool.demo.Bo;
 
-import edu.project.lernessschool.demo.Bo.Custom.impl.UserPageBOimpl;
+import edu.project.lernessschool.demo.Bo.Custom.impl.LoginPageBOImpl;
+import edu.project.lernessschool.demo.Bo.Custom.impl.UserManegementBOImpl;
+//import edu.project.lernessschool.demo.Bo.Custom.impl.UserPageBOimpl;
 
 public class BOFactry {
     private  static   BOFactry boFactry;
@@ -17,8 +19,9 @@ private   BOFactry() {
     @SuppressWarnings("unchecked")
     public <Hello extends SuperBO> Hello getBO(BOtypes boType) {
         return switch (boType) {
-            case USERPAGE -> (Hello) new UserPageBOimpl();
+            case LOGIN -> (Hello) new LoginPageBOImpl();
 
+            case UserManegement -> (Hello) new UserManegementBOImpl();
         };
     }
 

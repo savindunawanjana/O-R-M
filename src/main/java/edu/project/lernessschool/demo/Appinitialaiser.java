@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.mindrot.jbcrypt.BCrypt;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -29,7 +30,11 @@ public class Appinitialaiser  extends Application {
         stage.setScene(scene);
         stage.setScene(scene);
         stage.show();
-
+//        $2a$10$OJ0NsuQ0pVIfC.QHzJ1re.sIJWz7PcG8X1hSPs04jQHROUo6U/oF6
+//        String hash = "$2a$10$OJ0NsuQ0pVIfC.QHzJ1re.sIJWz7PcG8X1hSPs04jQHROUo6U/oF6";
+//        System.out.println("chek=====================");
+//        System.out.println(BCrypt.checkpw("123", hash)); // true or false?
+//        System.out.println("chek=====================");
 
         exsamplemethod();
 
@@ -37,23 +42,24 @@ public class Appinitialaiser  extends Application {
 
     public  static  void exsamplemethod(){
 
+//        String id ="123";
+//        String hashedPassword = BCrypt.hashpw(id, BCrypt.gensalt());
 //
 //        Session session = FactoryConfigaretion.getInstance().getSession();
 //        Transaction transaction = session.beginTransaction();
 //
 //        UserEntyty user = new UserEntyty(
-//
-//                "Savindu",
-//                "123",
+//                "U001",
+//                "Nawanjana",
+//                hashedPassword,
 //                "Admin",
-//                0712323223,   // phone number as String
-//                "savindu@gmail.com"
+//                "0123456789",   // phone number as String
+//                "nawanjana@gmail.com"
 //        );
 //
 //        session.persist(user);
 //        transaction.commit();
 //        session.close();
-
 
     }
 
