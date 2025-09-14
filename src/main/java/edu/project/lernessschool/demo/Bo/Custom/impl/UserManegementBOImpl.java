@@ -7,51 +7,54 @@ import edu.project.lernessschool.demo.Dao.DAOFactory;
 import edu.project.lernessschool.demo.Dao.DAOTypes;
 import edu.project.lernessschool.demo.Dto.UserDto;
 import edu.project.lernessschool.demo.Entyty.UserEntyty;
+import javafx.scene.control.Alert;
+
+import java.util.ArrayList;
 import java.util.List;
 
 
 public class UserManegementBOImpl implements UserManegementBO {
 
-    private EntytyDtoConverter   converter = new EntytyDtoConverter();
-    private UserDAO userDAO= DAOFactory.getInstance().getDAO(DAOTypes.USER);
+    private EntytyDtoConverter converter = new EntytyDtoConverter();
+    private UserDAO userDAO = DAOFactory.getInstance().getDAO(DAOTypes.USER);
 
 
     @Override
     public String[] saveMethod(UserDto dto) {
-         String[]name = new String[4];
-        UserEntyty entyty =converter.getUserEnty(dto);
-        boolean rsp[] =new boolean[1];
+        String[] name = new String[4];
+        UserEntyty entyty = converter.getUserEnty(dto);
+        boolean rsp[] = new boolean[1];
         try {
-            boolean  isAvelabledublicateUsername =userDAO.isAvelabledublicateUsername(entyty);
-            boolean  isAvelabledublicatePassword=userDAO.isAvelabledublicatePassword(entyty);
-            boolean  isAvelabledublicateEmail=userDAO.isAvelabledublicateEmail(entyty);
-            boolean  isAvelabledublicateContactNumber=userDAO.isAvelabledublicateContactNumber(entyty);
+            boolean isAvelabledublicateUsername = userDAO.isAvelabledublicateUsername(entyty);
+            boolean isAvelabledublicatePassword = userDAO.isAvelabledublicatePassword(entyty);
+            boolean isAvelabledublicateEmail = userDAO.isAvelabledublicateEmail(entyty);
+            boolean isAvelabledublicateContactNumber = userDAO.isAvelabledublicateContactNumber(entyty);
 
-            if(isAvelabledublicateUsername==true ||isAvelabledublicatePassword==true||isAvelabledublicateEmail==true||isAvelabledublicateContactNumber==true){
-                rsp[0]= true;
+            if (isAvelabledublicateUsername == true || isAvelabledublicatePassword == true || isAvelabledublicateEmail == true || isAvelabledublicateContactNumber == true) {
+                rsp[0] = true;
             }
 
-            if (isAvelabledublicateUsername){
-                name [0]="Username";
+            if (isAvelabledublicateUsername) {
+                name[0] = "Username";
             }
-            if (isAvelabledublicatePassword){
-                name[1]="Password";
+            if (isAvelabledublicatePassword) {
+                name[1] = "Password";
             }
-            if (isAvelabledublicateEmail){
-                name[2]="Email";
+            if (isAvelabledublicateEmail) {
+                name[2] = "Email";
             }
-            if (isAvelabledublicateContactNumber){
-                name[3]="ContactNumber";
+            if (isAvelabledublicateContactNumber) {
+                name[3] = "ContactNumber";
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         try {
-            boolean rsp1  = userDAO.saveMethod(entyty);
-            System.out.println("Dao eke saveMethod ekata coll wenawa "+ "ewagema rsp = "+rsp1);
+            boolean rsp1 = userDAO.saveMethod(entyty);
+            System.out.println("Dao eke saveMethod ekata coll wenawa " + "ewagema rsp = " + rsp1);
 
-        }catch (Exception e){
-e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
 
         }
         return name;
@@ -59,36 +62,116 @@ e.printStackTrace();
 
     @Override
     public void updatdMethod(UserDto dto) {
+
+EntytyDtoConverter converter1= new  EntytyDtoConverter();
+UserEntyty userEntyty =converter1.getUserEnty(dto);
+try {
+
+   Boolean rsp1  =userDAO.updatdMethod(userEntyty);
+   if (rsp1){
+       Alert alert = new Alert(Alert.AlertType.INFORMATION);
+       alert.setTitle("Information");
+       alert.setHeaderText(null);
+       alert.setContentText("Update Successfull");
+       alert.showAndWait();
+       alert.close();
+
+   }else {
+       Alert alert = new Alert(Alert.AlertType.ERROR);
+       alert.setTitle("Information");
+       alert.setHeaderText(null);
+       alert.setContentText("Update faild");
+       alert.showAndWait();
+       alert.close();
+
+   }
+
+}catch (Exception e){
+
+}
+
+
+
+
+
     }
+
     @Override
-    public void deleteMethod(UserDto dto) {
+    public Boolean deleteMethod(UserDto dto) {
+        EntytyDtoConverter converter = new EntytyDtoConverter();
+        UserEntyty entyty = converter.getUserEnty(dto);
+        try {
+            Boolean rsp = userDAO.deleteMethod(entyty);
+            return rsp;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
     }
+
     @Override
     public UserDto getlastId() {
         UserDto dto3 = new UserDto();
-        try{
-            UserEntyty userEntyty =userDAO.getLastId();
-   EntytyDtoConverter converter = new EntytyDtoConverter();
-     UserDto dto =converter.getUserDto(userEntyty);
-            UserDto dto2 = new  UserDto();
+        try {
+            UserEntyty userEntyty = userDAO.getLastId();
+            EntytyDtoConverter converter = new EntytyDtoConverter();
+            UserDto dto = converter.getUserDto(userEntyty);
+            UserDto dto2 = new UserDto();
             char prefix = 'U';
-            if(dto==null){
+            if (dto == null) {
                 dto3.setUserid("U001");
-            }else {
-                String id   =dto.getUserid();
+            } else {
+                String id = dto.getUserid();
                 String numberPart = id.substring(1);
                 int lastIdNumber = Integer.parseInt(numberPart);
                 int nextIdNumber = lastIdNumber + 1;
-               String newId =  String.format(prefix + "%03d", nextIdNumber);
+                String newId = String.format(prefix + "%03d", nextIdNumber);
                 dto2.setUserid(newId);
                 return dto2;
             }
-        }catch (Exception e){e.printStackTrace();}
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return dto3;
     }
 
     @Override
     public List<UserDto> getUserManegementList() {
-        return List.of();
+
+        try {
+            List<UserEntyty> userList = userDAO.getUserManegementList();
+            List<UserDto> userDtoList = new ArrayList<>();
+
+            for (UserEntyty user : userList) {
+
+                EntytyDtoConverter converter = new EntytyDtoConverter();
+                UserDto dto = converter.getUserDto(user);
+                userDtoList.add(dto);
+
+            }
+            return userDtoList;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
+
     }
+
+    @Override
+    public boolean isuserAvelable(UserDto dto) {
+
+        EntytyDtoConverter converter = new EntytyDtoConverter();
+        UserEntyty entyty = converter.getUserEnty(dto);
+        try {
+            return userDAO.isuserAvelable(entyty);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
+
 }

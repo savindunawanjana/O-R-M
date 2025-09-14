@@ -19,8 +19,8 @@ public interface UserDAO extends SuperDAO {
     boolean  isAvelabledublicateEmail(UserEntyty entyty)throws Exception;
     UserEntyty getLastId()throws Exception;
     boolean  isAvelabledublicateContactNumber(UserEntyty entyty)throws Exception;
-
-    List<UserDto> getUserManegementList()throws Exception;
+     boolean isuserAvelable(UserEntyty entyty) throws Exception;
+    List<UserEntyty> getUserManegementList()throws Exception;
 
 
 

@@ -42,7 +42,7 @@ public class Appinitialaiser  extends Application {
 
     public  static  void exsamplemethod(){
 
-//        String id ="123";
+//        String id ="2003";
 //        String hashedPassword = BCrypt.hashpw(id, BCrypt.gensalt());
 //
 //        Session session = FactoryConfigaretion.getInstance().getSession();
@@ -50,16 +50,21 @@ public class Appinitialaiser  extends Application {
 //
 //        UserEntyty user = new UserEntyty(
 //                "U001",
-//                "Nawanjana",
+//                "savindu",
 //                hashedPassword,
 //                "Admin",
-//                "0123456789",   // phone number as String
+//                "0724659887",   // phone number as String
 //                "nawanjana@gmail.com"
 //        );
 //
 //        session.persist(user);
 //        transaction.commit();
 //        session.close();
+//        String hash = "$2a$10$Qg8NmSC7nB.qQlyHBH0s9.t9GpKVomVAfB2LhVF0AY4b/xda0SZ8W";
+//        String candidate = "2003";
+
+//        boolean match = BCrypt.checkpw(candidate, hash);
+//        System.out.println("Does '2003' match the hash? " + match);
 
     }
 

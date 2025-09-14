@@ -17,6 +17,8 @@ module edu.project.lernessschool.demo {
 
     requires java.naming;
     requires jbcrypt;
+    requires javafx.base;
+//    requires edu.project.lernessschool.demo;
 //    requires edu.project.lernessschool.demo;
 //    requires edu.project.lernessschool.demo;
 
@@ -24,6 +26,7 @@ module edu.project.lernessschool.demo {
 //    requires org.mindrot.jbcrypt;// BCrypt module
 
     // Opens packages for reflection
+    opens edu.project.lernessschool.demo.Dto to javafx.base;
     opens edu.project.lernessschool.demo.Entyty to org.hibernate.orm.core; // Hibernate access
     opens edu.project.lernessschool.demo.Controller to javafx.fxml;       // JavaFX controllers
     opens edu.project.lernessschool.demo to javafx.fxml, javafx.graphics; // optional if needed

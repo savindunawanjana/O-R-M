@@ -5,14 +5,16 @@ import edu.project.lernessschool.demo.Bo.Custom.LoginPageBO;
 import edu.project.lernessschool.demo.Dao.Custom.UserDAO;
 import edu.project.lernessschool.demo.Dao.DAOFactory;
 import edu.project.lernessschool.demo.Dao.DAOTypes;
-import edu.project.lernessschool.demo.Dto.LoinDto;
+import edu.project.lernessschool.demo.Dto.LoginDto;
+import edu.project.lernessschool.demo.Dto.UserDto;
 import edu.project.lernessschool.demo.Entyty.UserEntyty;
 import javafx.scene.control.Alert;
 //UserPageBOimpl
 public class LoginPageBOImpl  implements LoginPageBO {
+    private UserDto dto2;
     private final UserDAO userDAO = DAOFactory.getInstance().getDAO(DAOTypes.USER);
     @Override
-    public Boolean IsAvelablePasswordForUsername(LoinDto dto) {
+    public Boolean IsAvelablePasswordForUsername(LoginDto dto) {
 
 
         try {
@@ -21,6 +23,8 @@ public class LoginPageBOImpl  implements LoginPageBO {
             usrEntyty.setPassword(dto.getPassword());
 
             UserEntyty  userEntyty = userDAO.IsAvelablePasswordForUsername(usrEntyty);
+//            dto2.setUserroll(userEntyty.getUserroll());
+//            System.out.println(dto2.getUserroll());
 
             if(userEntyty == null &&  !(userEntyty.getUsername().equals(dto.getUsername())) ){
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -57,6 +61,10 @@ public class LoginPageBOImpl  implements LoginPageBO {
 
         }
 
+    }
+
+    public  UserDto getUserrolleFromdto(){
+        return dto2;
     }
 
 

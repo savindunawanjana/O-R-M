@@ -86,7 +86,7 @@
                      </font></Label>
                         <TextField fx:id="textfildUserRolle" prefHeight="34.0" prefWidth="166.0" promptText=" User Rolle" style="-fx-border-color: #0046FF; -fx-border-width: 0 0 2 0;" GridPane.columnIndex="1" />
                         <Label GridPane.rowIndex="2" />
-                        <TextField fx:id="textfildPassword" prefHeight="36.0" prefWidth="166.0" promptText="Password" style="-fx-border-color: #0046FF; -fx-border-width: 0 0 2 0;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="textfildPassword" prefHeight="36.0" prefWidth="166.0" promptText="Enter New Password" style="-fx-border-color: #0046FF; -fx-border-width: 0 0 2 0;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <TextField fx:id="textfildUsername" prefHeight="34.0" prefWidth="166.0" promptText="User name" style="-fx-border-color: #0046FF; -fx-border-width: 0 0 2 0;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                         <Label prefHeight="49.0" prefWidth="240.0" text="                  Password :" textFill="#ffdd59" GridPane.rowIndex="1">
                      <font>
@@ -105,7 +105,7 @@
                      <font>
                         <Font name="System Bold" size="19.0" />
                      </font></Label>
-                        <Label fx:id="lblUserId" prefHeight="59.0" prefWidth="631.0" style="-fx-border-color: #E62727; -fx-border-width: 0 0 2 0;" text="                                                         Not yet" textFill="#ab8080" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                        <Label fx:id="lblUserId" prefHeight="59.0" prefWidth="631.0" style="-fx-border-color: #E62727; -fx-border-width: 0 0 2 0;" text="                                                                               Not yet" textFill="#ab8080" GridPane.columnIndex="1" GridPane.rowIndex="5">
                      <font>
                         <Font name="System Bold" size="19.0" />
                      </font></Label>

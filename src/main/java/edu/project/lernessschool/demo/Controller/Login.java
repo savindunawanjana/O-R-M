@@ -3,17 +3,15 @@ package edu.project.lernessschool.demo.Controller;
 import edu.project.lernessschool.demo.Bo.BOFactry;
 import edu.project.lernessschool.demo.Bo.BOtypes;
 import edu.project.lernessschool.demo.Bo.Custom.LoginPageBO;
-import edu.project.lernessschool.demo.Dto.LoinDto;
-import javafx.application.Application;
+import edu.project.lernessschool.demo.Dto.LoginDto;
+import edu.project.lernessschool.demo.Dto.UserDto;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import org.mindrot.jbcrypt.BCrypt;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -29,25 +27,26 @@ public class Login implements Initializable {
     public Label FrogatpasswordLableId;
     public PasswordField passwordfilId;
     public TextField textfildId;
-    private boolean array[] ={true};
+    private boolean array[] = {true};
     private final LoginPageBO loginpagebo = BOFactry.getInstance().getBO(BOtypes.LOGIN);
 
     public void handleLoginAction(ActionEvent actionEvent) {
 
-        LoinDto dto = new LoinDto(
+        LoginDto dto = new LoginDto(
                 textfildId.getText(),
                 txtUsername.getText()
         );
 
-//        String hashed = BCrypt.hashpw(passwordfilId.getText(), BCrypt.gensalt());
 
-                 Boolean rsp  =loginpagebo.IsAvelablePasswordForUsername(dto);
+        Boolean rsp = loginpagebo.IsAvelablePasswordForUsername(dto);
 
-                 if(rsp){
+        if (rsp) {
 
-                     navigate("/View/Dashbord.fxml");
+//           UserDto dto2 =loginpagebo.getUserrolleFromdto();
+//            System.out.println(dto2.getUsername());
+            navigate("/View/Dashbord.fxml");
 
-                 }
+        }
     }
 
     public void handleCancelAction(ActionEvent actionEvent) {
@@ -80,16 +79,16 @@ public class Login implements Initializable {
         textfildId.setStyle(" -fx-border-width: 1;");
 
 
-        if(array[0]){
+        if (array[0]) {
 
             AnchorPane.setLeftAnchor(textfildId, 90.0);
             AnchorPane.setTopAnchor(textfildId, 468.0);
             passwordfilId.setVisible(false);
             textfildId.setVisible(true);
             showPasswordButten.setText("Hide Password");
-            array[0]=false;
+            array[0] = false;
             System.out.println(array[0]);
-        }else {
+        } else {
 
             passwordfilId.setVisible(true);
             textfildId.setVisible(false);

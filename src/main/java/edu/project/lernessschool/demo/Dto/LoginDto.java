@@ -1,18 +1,16 @@
 package edu.project.lernessschool.demo.Dto;
 
-import edu.project.lernessschool.demo.Entyty.UserEntyty;
-
-public class LoinDto {
+public class LoginDto {
 
   private String Password;
     private String Username;
 
-    public LoinDto(String password, String username) {
+    public LoginDto(String password, String username) {
         Password = password;
         Username = username;
     }
 
-    public LoinDto() {
+    public LoginDto() {
     }
 
     public String getPassword() {

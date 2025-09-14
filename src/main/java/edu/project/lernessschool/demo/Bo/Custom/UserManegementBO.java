@@ -12,9 +12,11 @@ public interface UserManegementBO  extends SuperBO {
 
     String[] saveMethod(UserDto dto);
     void updatdMethod(UserDto dto);
-    void deleteMethod(UserDto dto);
+    Boolean deleteMethod(UserDto dto);
     UserDto getlastId();
     List<UserDto> getUserManegementList();
+    boolean isuserAvelable(UserDto dto);
+//    UserDto getUserRoll ();
 
 
 

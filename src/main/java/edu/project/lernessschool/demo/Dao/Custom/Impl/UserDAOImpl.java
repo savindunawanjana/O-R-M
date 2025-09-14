@@ -10,6 +10,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.mindrot.jbcrypt.BCrypt;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class UserDAOImpl implements UserDAO {
@@ -27,21 +28,19 @@ public class UserDAOImpl implements UserDAO {
                     .getResultList();
             transaction.commit();
 
-             for (UserEntyty u : users) {
+            for (UserEntyty u : users) {
 
-                 boolean passwordMatch = BCrypt.checkpw( entyty.getPassword() , u.getPassword());
-                 System.out.println(passwordMatch);
-if(passwordMatch) {
-    if (u.getUsername().equals(entyty.getUsername())) {
-        System.out.println("user Entyty ="+u);
-        return u;
+                boolean passwordMatch = BCrypt.checkpw(entyty.getPassword(), u.getPassword());
+                System.out.println(passwordMatch);
+                if (passwordMatch) {
+                    if (u.getUsername().equals(entyty.getUsername())) {
+                        System.out.println("user Entyty =" + u);
+                        return u;
 
-    }
-}
+                    }
+                }
 
-}
-
-
+            }
 
 
         } catch (Exception e) {
@@ -79,13 +78,13 @@ if(passwordMatch) {
 
             transaction.commit();
             return true;
-        }catch (Exception e){
+        } catch (Exception e) {
 
             if (transaction != null) {
                 transaction.rollback();
             }
             return false;
-        }finally {
+        } finally {
             session.close();
         }
 
@@ -93,30 +92,42 @@ if(passwordMatch) {
 
     @Override
     public Boolean updatdMethod(UserEntyty entyty) throws Exception {
+        System.out.println("updete methode eka dao keke");
+
         Session session = FactoryConfigaretion.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
+        System.out.println(entyty.getPassword());
+
+        System.out.println(entyty.getPassword() == null || entyty.getPassword().isEmpty());
+        if (entyty.getPassword() == null || entyty.getPassword().isEmpty()) {
+            try {
+                UserEntyty userEntyty = session.createQuery(
+                                "from UserEntyty where Userid = :userid", UserEntyty.class)
+                        .setParameter("userid", entyty.getUserid())
+                        .uniqueResult();
+                System.out.println("=====================================");
+                if (userEntyty != null) {
+                    System.out.println(userEntyty.getUsername());
+                    entyty.setPassword(userEntyty.getPassword());
+                    System.out.println(entyty);
+                }
+                System.out.println("=====================================");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
 
         try {
-
-            session.merge(new UserEntyty(
-                    entyty.getUserid(),
-                    entyty.getUsername(),
-                    entyty.getPassword(),
-                    entyty.getUserroll(),
-                    entyty.getContact_number(),
-                    entyty.getEmail()
-            ));
-
+            session.merge(entyty); // use entyty directly instead of new UserEntyty(...)
             transaction.commit();
             return true;
-        }catch (Exception e){
-
+        } catch (Exception e) {
             if (transaction != null) {
                 transaction.rollback();
             }
             e.printStackTrace();
             return false;
-        }finally {
+        } finally {
             session.close();
         }
     }
@@ -148,29 +159,29 @@ if(passwordMatch) {
 
     @Override
     public boolean isAvelabledublicateUsername(UserEntyty entyty) throws Exception {
-Session session = FactoryConfigaretion.getInstance().getSession();
+        Session session = FactoryConfigaretion.getInstance().getSession();
 
-boolean rsp[]=new boolean[1];
-        try{
+        boolean rsp[] = new boolean[1];
+        try {
 
             UserEntyty userEntyty = session.createQuery(
                             "from UserEntyty where username = :username", UserEntyty.class)
                     .setParameter("username", entyty.getUsername())
                     .uniqueResult();
-            if(userEntyty == null){
-             //   System.out.println(userEntyty);
-                rsp[0]=false;
+            if (userEntyty == null) {
+                //   System.out.println(userEntyty);
+                rsp[0] = false;
 
-            }else {
-                rsp[0]=true;
+            } else {
+                rsp[0] = true;
             }
 
 
-        }catch (Exception e){
+        } catch (Exception e) {
 
-e.printStackTrace();
+            e.printStackTrace();
 
-        }finally {
+        } finally {
             session.close();
         }
         return rsp[0];
@@ -181,8 +192,8 @@ e.printStackTrace();
     public boolean isAvelabledublicatePassword(UserEntyty entyty) throws Exception {
         Session session = FactoryConfigaretion.getInstance().getSession();
 
-        boolean rsp[]=new boolean[1];
-        try{
+        boolean rsp[] = new boolean[1];
+        try {
 
             UserEntyty userEntyty = session.createQuery(
                             "from UserEntyty where password = :upassword", UserEntyty.class)
@@ -190,21 +201,19 @@ e.printStackTrace();
                     .uniqueResult();
 
 
+            if (userEntyty == null) {
+                rsp[0] = false;
 
-
-            if(userEntyty == null){
-                rsp[0]=false;
-
-            }else {
-                rsp[0]=true;
+            } else {
+                rsp[0] = true;
             }
 
 
-        }catch (Exception e){
+        } catch (Exception e) {
 
             e.printStackTrace();
 
-        }finally {
+        } finally {
             session.close();
         }
         return rsp[0];
@@ -214,8 +223,8 @@ e.printStackTrace();
     public boolean isAvelabledublicateEmail(UserEntyty entyty) throws Exception {
         Session session = FactoryConfigaretion.getInstance().getSession();
 
-        boolean rsp[]=new boolean[1];
-        try{
+        boolean rsp[] = new boolean[1];
+        try {
 
             UserEntyty userEntyty = session.createQuery(
                             "from UserEntyty where email = :email", UserEntyty.class)
@@ -223,21 +232,19 @@ e.printStackTrace();
                     .uniqueResult();
 
 
+            if (userEntyty == null) {
+                rsp[0] = false;
 
-
-            if(userEntyty == null){
-                rsp[0]=false;
-
-            }else {
-                rsp[0]=true;
+            } else {
+                rsp[0] = true;
             }
 
 
-        }catch (Exception e){
+        } catch (Exception e) {
 
             e.printStackTrace();
 
-        }finally {
+        } finally {
             session.close();
         }
         return rsp[0];
@@ -248,27 +255,27 @@ e.printStackTrace();
 
         Session session = FactoryConfigaretion.getInstance().getSession();
 
-       try {
+        try {
 
 //           UserEntyty lastUser;
-         return session.createQuery(
-                           "FROM UserEntyty u ORDER BY u.Userid DESC",   // HQL query
-                           UserEntyty.class                              // return type (entity class)
-                   )
-                   .setMaxResults(1)                                // eka result witharai ganna
-                   .uniqueResultOptional()                          // Optional<UserEntyty> return wenawa
-                   .orElse(null);                                   // result nathnam null return karanawa
+            return session.createQuery(
+                            "FROM UserEntyty u ORDER BY u.Userid DESC",   // HQL query
+                            UserEntyty.class                              // return type (entity class)
+                    )
+                    .setMaxResults(1)                                // eka result witharai ganna
+                    .uniqueResultOptional()                          // Optional<UserEntyty> return wenawa
+                    .orElse(null);                                   // result nathnam null return karanawa
 
 //           return lastUser;
 
-       }catch (Exception e){
-           e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
 
-       }finally {
-           session.close();
-       }
+        } finally {
+            session.close();
+        }
 
-       return null;
+        return null;
 
     }
 
@@ -276,8 +283,8 @@ e.printStackTrace();
     public boolean isAvelabledublicateContactNumber(UserEntyty entyty) throws Exception {
         Session session = FactoryConfigaretion.getInstance().getSession();
 
-        boolean rsp[]=new boolean[1];
-        try{
+        boolean rsp[] = new boolean[1];
+        try {
 
             UserEntyty userEntyty = session.createQuery(
                             "from UserEntyty where contact_number = :contact_number", UserEntyty.class)
@@ -285,28 +292,67 @@ e.printStackTrace();
                     .uniqueResult();
 
 
+            if (userEntyty == null) {
+                rsp[0] = false;
 
-
-            if(userEntyty == null){
-                rsp[0]=false;
-
-            }else {
-                rsp[0]=true;
+            } else {
+                rsp[0] = true;
             }
 
-
-        }catch (Exception e){
+        } catch (Exception e) {
 
             e.printStackTrace();
 
-        }finally {
+        } finally {
             session.close();
         }
         return rsp[0];
     }
 
     @Override
-    public List<UserDto> getUserManegementList() throws Exception {
-        return List.of();
+    public boolean isuserAvelable(UserEntyty entyty) throws Exception {
+        Session session = FactoryConfigaretion.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        UserEntyty userEntyty = session.createQuery("from UserEntyty where  Userid= :userid", UserEntyty.class)
+                .setParameter("userid", entyty.getUserid())
+                .uniqueResult();
+
+        transaction.commit();
+
+        if (userEntyty != null) {
+            return true;
+        } else {
+            return false;
+        }
+
+
     }
+
+    @Override
+    public List<UserEntyty> getUserManegementList() throws Exception {
+        Session session = FactoryConfigaretion.getInstance().getSession();
+        Transaction transaction = null;
+        List<UserEntyty> userList = new ArrayList<>();
+
+        try {
+            transaction = session.beginTransaction();
+
+            userList = session.createQuery("from UserEntyty", UserEntyty.class)
+                    .getResultList();
+
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            throw e;
+        } finally {
+            session.close();
+        }
+
+        return userList;
+    }
+
+
 }

@@ -66,8 +66,8 @@ public class UserDto {
         return userroll;
     }
 
-    public void setUserroll(String userroll) {
-        this.userroll = userroll;
+    public void setUserroll(String Userroll) {
+        this.userroll = Userroll;
     }
 
     @Override
