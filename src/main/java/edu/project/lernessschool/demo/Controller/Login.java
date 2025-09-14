@@ -18,7 +18,7 @@ import java.util.ResourceBundle;
 
 public class Login implements Initializable {
 
-
+    static String[] getrolle = new String[1];
     public TextField txtUsername;
     public Button btnLogin;
     public Button btnCancel;
@@ -41,13 +41,18 @@ public class Login implements Initializable {
         Boolean rsp = loginpagebo.IsAvelablePasswordForUsername(dto);
 
         if (rsp) {
+            UserDto dto2 = loginpagebo.getUserrolleFromdto();
+            getrolle[0] = dto2.getUserroll();
+            System.out.println("================================" + getrolle[0]);
 
-//           UserDto dto2 =loginpagebo.getUserrolleFromdto();
-//            System.out.println(dto2.getUsername());
+
             navigate("/View/Dashbord.fxml");
+
+
 
         }
     }
+
 
     public void handleCancelAction(ActionEvent actionEvent) {
     }

@@ -2,13 +2,16 @@ package edu.project.lernessschool.demo.Controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class Dashbord {
+public class Dashbord implements Initializable {
 
     public Button btnUser;
     public Button btnCourse;
@@ -25,7 +28,21 @@ public class Dashbord {
     public Button btnSubmitLogin;
     public AnchorPane SubContentPane;
     public AnchorPane rootPane;
+    public Label lblRoll;
+    private String rolle = Login.getrolle[0];
+   public void comanmethod(){
+       System.out.println("======================");
+       System.out.println(rolle);
+       System.out.println("======================");
+       if(rolle.equals("User")){
 
+           btnUser.setDisable(true);
+           btnUser.setStyle("-fx-background-color: #DC143C; -fx-background-radius: 10; -fx-border-color: #ffffff; -fx-border-radius: 10;");
+           btnCourse.setDisable(true);
+           btnCourse.setStyle("-fx-background-color: #DC143C; -fx-background-radius: 10; -fx-border-color: #ffffff; -fx-border-radius: 10;");
+
+       }
+   }
     public void onActionUserbutten(ActionEvent actionEvent) {
 
         navigate("/View/User.fxml");
@@ -33,6 +50,7 @@ public class Dashbord {
     }
 
     public void onActionCoursebutten(ActionEvent actionEvent) {
+
         navigate("/View/Course.fxml");
     }
 
@@ -105,5 +123,12 @@ public class Dashbord {
 
 
 
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        System.out.println(Login.getrolle[0]);
+        lblRoll.setText(rolle);
+        comanmethod();
     }
 }

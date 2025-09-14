@@ -28,7 +28,6 @@
                 <TableColumn fx:id="colUserRollId" prefWidth="75.0" text="Rolle" />
                 <TableColumn fx:id="colUsername" prefWidth="108.0" text="USer Name" />
                 <TableColumn fx:id="colCnumber" prefWidth="108.0" text="C-Number" />
-                <TableColumn fx:id="colUserPassword" minWidth="9.0" prefWidth="78.0" text="User-Password" />
             <TableColumn fx:id="coluserEmail" minWidth="9.0" prefWidth="78.0" text="Email" />
             </columns>
             <columnResizePolicy>
