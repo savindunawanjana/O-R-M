@@ -18,6 +18,7 @@ module edu.project.lernessschool.demo {
     requires java.naming;
     requires jbcrypt;
     requires javafx.base;
+    requires edu.project.lernessschool.demo;
 //    requires edu.project.lernessschool.demo;
 //    requires edu.project.lernessschool.demo;
 //    requires edu.project.lernessschool.demo;
