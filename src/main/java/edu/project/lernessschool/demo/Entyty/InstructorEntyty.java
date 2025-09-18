@@ -1,13 +1,10 @@
 package edu.project.lernessschool.demo.Entyty;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "Instructor")
 public class InstructorEntyty {
-
 
     @Id
     private String instructorId;
@@ -66,5 +63,16 @@ public class InstructorEntyty {
 
     public void setInstructorPhone(String instructorPhone) {
         this.instructorPhone = instructorPhone;
+    }
+
+    @Override
+    public String toString() {
+        return "InstructorEntyty{" +
+                "instructorId='" + instructorId + '\'' +
+                ", instructorName='" + instructorName + '\'' +
+                ", instructorEmail='" + instructorEmail + '\'' +
+                ", instructorSpeciality='" + instructorSpeciality + '\'' +
+                ", instructorPhone='" + instructorPhone + '\'' +
+                '}';
     }
 }

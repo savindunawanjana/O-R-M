@@ -1,5 +1,6 @@
 package edu.project.lernessschool.demo.Bo;
 
+import edu.project.lernessschool.demo.Bo.Custom.impl.InstructorBOImpl;
 import edu.project.lernessschool.demo.Bo.Custom.impl.LoginPageBOImpl;
 import edu.project.lernessschool.demo.Bo.Custom.impl.UserManegementBOImpl;
 //import edu.project.lernessschool.demo.Bo.Custom.impl.UserPageBOimpl;
@@ -22,6 +23,8 @@ private   BOFactry() {
             case LOGIN -> (Hello) new LoginPageBOImpl();
 
             case UserManegement -> (Hello) new UserManegementBOImpl();
+
+            case INSTRUCTOR -> (Hello) new InstructorBOImpl();
         };
     }
 

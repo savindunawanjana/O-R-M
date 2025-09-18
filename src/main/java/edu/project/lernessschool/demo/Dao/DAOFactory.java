@@ -1,7 +1,10 @@
 package edu.project.lernessschool.demo.Dao;
 
 //import edu.project.lernessschool.demo.Bo.Custom.impl.UserPageBOimpl;
+import edu.project.lernessschool.demo.Bo.Custom.impl.InstructorBOImpl;
+import edu.project.lernessschool.demo.Dao.Custom.Impl.InstructorDAOImpl;
 import edu.project.lernessschool.demo.Dao.Custom.Impl.UserDAOImpl;
+import edu.project.lernessschool.demo.Dao.Custom.InstructorDAO;
 
 public class DAOFactory {
     private static DAOFactory daoFactory;
@@ -17,6 +20,8 @@ public class DAOFactory {
     public <T extends SuperDAO> T getDAO(DAOTypes daoType) {
         return switch (daoType) {
             case USER -> (T) new UserDAOImpl();
+            case INSTRUCTOR -> (T) new InstructorDAOImpl();
+//            case USER -> (T) new UserDAOImpl();
 
         };
     }

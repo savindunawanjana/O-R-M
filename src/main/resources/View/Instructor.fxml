@@ -77,11 +77,11 @@
       </GridPane>
       <TableView fx:id="tableId" layoutX="284.0" layoutY="563.0" onMouseClicked="#tableOnmousClicked" prefHeight="392.0" prefWidth="1240.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="Id" />
-          <TableColumn prefWidth="75.0" text="Name" />
-            <TableColumn prefWidth="75.0" text="Email" />
-            <TableColumn prefWidth="75.0" text="Speciality" />
-            <TableColumn prefWidth="75.0" text="Number" />
+          <TableColumn fx:id="colIdInstroctor" prefWidth="75.0" text="Id" />
+          <TableColumn fx:id="colNameInstroctor" prefWidth="75.0" text="Name" />
+            <TableColumn fx:id="colEmailInstroctor" prefWidth="75.0" text="Email" />
+            <TableColumn fx:id="colSpeciality" prefWidth="75.0" text="Speciality" />
+            <TableColumn fx:id="colNumber" prefWidth="75.0" text="Number" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
