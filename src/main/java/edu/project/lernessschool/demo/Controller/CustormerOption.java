@@ -79,6 +79,7 @@ public class CustormerOption implements Initializable {
         txtAdvansId.clear();
         txtCustormerName.clear();
         courseFeeLableId.setText(" Course fee");
+        lodNextId();
     }
 
     public void btnDeleteOnAction(ActionEvent actionEvent) {
@@ -131,6 +132,14 @@ public class CustormerOption implements Initializable {
                     alert.setTitle("INFORMATION");
                     alert.setContentText(" Saved Successfully");
                     alert.show();
+                    coisboxCoursename.setValue("select Course");
+                    txtCustormerNumberId.clear();
+                    txtEmailId.clear();
+                    txtcourseId.clear();
+                    txtAdvansId.clear();
+                    txtCustormerName.clear();
+                    courseFeeLableId.setText(" Course fee");
+                    lodNextId();
 
                 } else {
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
