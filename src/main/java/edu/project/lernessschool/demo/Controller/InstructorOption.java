@@ -224,9 +224,9 @@ public class InstructorOption implements Initializable {
                 alert.setHeaderText("Error");
                 alert.setContentText("Invalid Email or Phone Number please cheak again");
                 alert.show();
-                clearmethod();
-                LodeTableData();
-                lodenextId();
+//                clearmethod();
+               LodeTableData();
+//                lodenextId();
 
             }
         } else {

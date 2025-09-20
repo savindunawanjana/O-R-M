@@ -1,6 +1,39 @@
 package edu.project.lernessschool.demo.Entyty;
 
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.sql.Date;
+import java.util.List;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+@Table(name = "student")
 public class StudentEntyty {
+
+@Id
+    private String studentId;
+
+private String name;
+
+private String pnumber;
+
+private String email;
+
+//private String Course;
+
+//private Double firstPayment;
+
+private Date registrationDate;
+
+@OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
+    List<EnrollmentEntyty> enrollments;
+
+
 
 
 

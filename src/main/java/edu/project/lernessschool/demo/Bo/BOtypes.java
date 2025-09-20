@@ -4,7 +4,9 @@ public enum BOtypes {
 
     LOGIN,
     UserManegement,
-    INSTRUCTOR
+    INSTRUCTOR,
+    STUDENTREGISTEION,
+    COURSE
 
 
 }

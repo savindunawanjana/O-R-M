@@ -18,10 +18,10 @@ module edu.project.lernessschool.demo {
     requires java.naming;
     requires jbcrypt;
     requires javafx.base;
+    requires static lombok;
+//    requires edu.project.lernessschool.demo;
+//    requires edu.project.lernessschool.demo;
 
-
-
-//    requires org.mindrot.jbcrypt;// BCrypt module
 
     // Opens packages for reflection
     opens edu.project.lernessschool.demo.Dto to javafx.base;

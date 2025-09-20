@@ -1,7 +1,6 @@
 package edu.project.lernessschool.demo.Configeretion;
 
-import edu.project.lernessschool.demo.Entyty.InstructorEntyty;
-import edu.project.lernessschool.demo.Entyty.UserEntyty;
+import edu.project.lernessschool.demo.Entyty.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -16,6 +15,9 @@ public class FactoryConfigaretion {
         Configuration configuration=new Configuration().configure("hibernate.cfg.xml"); //fxma
         configuration.addAnnotatedClass(UserEntyty.class);
         configuration.addAnnotatedClass(InstructorEntyty.class);
+        configuration.addAnnotatedClass(StudentEntyty.class);
+        configuration.addAnnotatedClass(EnrollmentEntyty.class);
+        configuration.addAnnotatedClass(CourseEntyty.class);
 
         sessionFactory= configuration.buildSessionFactory();
     }
