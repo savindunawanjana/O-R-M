@@ -2,10 +2,12 @@ package edu.project.lernessschool.demo.Bo.Custom.impl;
 
 import edu.project.lernessschool.demo.Bo.Custom.InstructorBO;
 import edu.project.lernessschool.demo.Bo.Util.EntytyDtoConverter;
+import edu.project.lernessschool.demo.Dao.Custom.CourseDAO;
 import edu.project.lernessschool.demo.Dao.Custom.InstructorDAO;
 import edu.project.lernessschool.demo.Dao.DAOFactory;
 import edu.project.lernessschool.demo.Dao.DAOTypes;
 import edu.project.lernessschool.demo.Dto.InstructorDto;
+import edu.project.lernessschool.demo.Entyty.CourseEntyty;
 import edu.project.lernessschool.demo.Entyty.InstructorEntyty;
 import javafx.scene.control.Alert;
 
@@ -14,6 +16,8 @@ import java.util.List;
 
 public class InstructorBOImpl implements InstructorBO {
     private final InstructorDAO instructorDao = DAOFactory.getInstance().getDAO(DAOTypes.INSTRUCTOR);
+    private final CourseDAO courseDAO = DAOFactory.getInstance().getDAO(DAOTypes.COURSE);
+
 
     @Override
     public boolean saveMethod(InstructorDto dto) {
@@ -128,5 +132,28 @@ public class InstructorBOImpl implements InstructorBO {
     @Override
     public boolean isInstroctorAvelable(InstructorDto dto) {
         return false;
+    }
+
+    @Override
+    public List<String> getCoursename() {
+
+        List<String> coursenames = new ArrayList<>();
+        try {
+
+            List<CourseEntyty>courseEntyties =courseDAO.getAll();
+
+            for (CourseEntyty entyty : courseEntyties) {
+
+                String courseName =  entyty.getCoureName();
+                coursenames.add(courseName);
+            }
+
+            return coursenames;
+
+        }catch (Exception ex) {
+            ex.printStackTrace();
+            return null;
+        }
+
     }
 }

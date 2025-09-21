@@ -1,11 +1,9 @@
 package edu.project.lernessschool.demo.Dao;
 
 //import edu.project.lernessschool.demo.Bo.Custom.impl.UserPageBOimpl;
+
 import edu.project.lernessschool.demo.Bo.Custom.impl.InstructorBOImpl;
-import edu.project.lernessschool.demo.Dao.Custom.Impl.CourseDAOImpl;
-import edu.project.lernessschool.demo.Dao.Custom.Impl.InstructorDAOImpl;
-import edu.project.lernessschool.demo.Dao.Custom.Impl.StudentRegistationDAOImpl;
-import edu.project.lernessschool.demo.Dao.Custom.Impl.UserDAOImpl;
+import edu.project.lernessschool.demo.Dao.Custom.Impl.*;
 import edu.project.lernessschool.demo.Dao.Custom.InstructorDAO;
 
 public class DAOFactory {
@@ -23,9 +21,9 @@ public class DAOFactory {
         return switch (daoType) {
             case USER -> (T) new UserDAOImpl();
             case INSTRUCTOR -> (T) new InstructorDAOImpl();
-            case STUDENTREGISTATION->(T) new StudentRegistationDAOImpl();
+            case STUDENTREGISTATION -> (T) new StudentRegistationDAOImpl();
             case COURSE -> (T) new CourseDAOImpl();
-
+            case LESSIONS -> (T) new LessionShedulDAOImpl();
         };
     }
 

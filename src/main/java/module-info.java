@@ -19,6 +19,7 @@ module edu.project.lernessschool.demo {
     requires jbcrypt;
     requires javafx.base;
     requires static lombok;
+    requires jdk.xml.dom;
 //    requires edu.project.lernessschool.demo;
 //    requires edu.project.lernessschool.demo;
 

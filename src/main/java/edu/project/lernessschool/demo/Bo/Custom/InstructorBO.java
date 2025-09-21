@@ -22,4 +22,6 @@ public interface InstructorBO extends SuperBO {
 
     boolean isInstroctorAvelable(InstructorDto dto);
 
+    List<String> getCoursename();
+
 }

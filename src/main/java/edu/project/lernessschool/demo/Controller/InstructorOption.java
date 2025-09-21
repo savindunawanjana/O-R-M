@@ -3,6 +3,7 @@ package edu.project.lernessschool.demo.Controller;
 import edu.project.lernessschool.demo.Bo.BOFactry;
 import edu.project.lernessschool.demo.Bo.BOtypes;
 import edu.project.lernessschool.demo.Bo.Custom.InstructorBO;
+import edu.project.lernessschool.demo.Dto.Enrolment;
 import edu.project.lernessschool.demo.Dto.InstructorDto;
 import edu.project.lernessschool.demo.Dto.UserDto;
 import javafx.collections.FXCollections;
@@ -15,6 +16,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class InstructorOption implements Initializable {
@@ -32,6 +34,7 @@ public class InstructorOption implements Initializable {
     public TableView tableId;
     private final String emailPattern = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
     private final String phonePattern = "^\\d{10}$"; // Only allows 10 digit numbers
+    public ChoiceBox choisBoxForSpecility;
 
     private InstructorBO instructorBO = BOFactry.getInstance().getBO(BOtypes.INSTRUCTOR);
 
@@ -274,6 +277,19 @@ public class InstructorOption implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+      List <String>coursename = instructorBO.getCoursename();
+                choisBoxForSpecility.setItems(FXCollections.observableArrayList(coursename));
+        choisBoxForSpecility.setValue("Select speciality");
+
+
+        choisBoxForSpecility.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {
+            if (newVal != null) {
+
+                textfildSpesiality.setText(newVal.toString());
+
+            }
+        });
 
         LodeTableData();
         lodenextId();

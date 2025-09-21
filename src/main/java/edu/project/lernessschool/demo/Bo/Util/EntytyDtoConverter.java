@@ -140,4 +140,28 @@ public class EntytyDtoConverter {
         return coursedto;
     }
 
+//    ===================================================================
+
+
+
+    public Enrolment getEnrolmentDto( EnrollmentEntyty entyty ) {
+
+        Enrolment enrolment = new Enrolment();
+
+        enrolment.setEnrollmentDate(entyty.getEnrollmentDate());
+        enrolment.setFirstPayment(entyty.getFirstPayment());
+        enrolment.setStatus(entyty.getStatus());
+
+        EntytyDtoConverter enttyDtoConverter = new EntytyDtoConverter();
+        Course course = enttyDtoConverter.getCourseDto(entyty.getCourse());
+        enrolment.setCoursedto(course);
+
+        return enrolment;
+    }
+
+
+
+
+
+
 }

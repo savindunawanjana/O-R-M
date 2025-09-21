@@ -34,6 +34,8 @@ private Date registrationDate;
     List<EnrollmentEntyty> enrollments;
 
 
+    @OneToMany(mappedBy = "student")
+    private List<LessionsEntyty> lessionslist;
 
 
 

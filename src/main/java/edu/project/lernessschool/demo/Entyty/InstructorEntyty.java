@@ -1,6 +1,9 @@
 package edu.project.lernessschool.demo.Entyty;
 
 import jakarta.persistence.*;
+import org.w3c.dom.stylesheets.LinkStyle;
+
+import java.util.List;
 
 @Entity
 @Table(name = "Instructor")
@@ -13,6 +16,9 @@ public class InstructorEntyty {
     private String instructorEmail;
     private String instructorSpeciality;
     private String instructorPhone;
+
+    @OneToMany(mappedBy = "instructor")
+    private List<LessionsEntyty> lessionslist;
 
     public InstructorEntyty(String instructorId, String instructorName, String instructorEmail, String instructorSpeciality, String instructorPhone) {
         this.instructorId = instructorId;
@@ -51,6 +57,14 @@ public class InstructorEntyty {
 
     public String getInstructorSpeciality() {
         return instructorSpeciality;
+    }
+
+    public List<LessionsEntyty> getLessionslist() {
+        return lessionslist;
+    }
+
+    public void setLessionslist(List<LessionsEntyty> lessionslist) {
+        this.lessionslist = lessionslist;
     }
 
     public void setInstructorSpeciality(String instructorSpeciality) {

@@ -28,5 +28,10 @@ public class CourseEntyty {
   @OneToMany(mappedBy = "course")
   private List<EnrollmentEntyty> enrollmentEntytys;
 
+    @OneToMany(mappedBy = "course")
+    private List<LessionsEntyty> lessionslist;
+
+
+
 }
 

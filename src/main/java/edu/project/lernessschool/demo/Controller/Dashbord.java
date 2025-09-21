@@ -61,7 +61,7 @@ public class Dashbord implements Initializable {
 
     public void onActionLessonSchedulingButten(ActionEvent actionEvent) {
 
-        navigate("/View/LessionShedul.fxml");
+        navigate("/View/calander.fxml");
 
     }
 

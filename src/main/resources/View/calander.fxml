@@ -39,16 +39,41 @@
                     <!-- Left Form -->
                     <VBox prefHeight="259.0" prefWidth="519.0" spacing="20">
                         <children>
-                     <Label prefHeight="236.0" prefWidth="194.0" text="Label" />
+                     <Label prefHeight="236.0" prefWidth="194.0" />
                             <HBox alignment="CENTER_LEFT" spacing="10">
-                                <Label prefHeight="30.0" prefWidth="108.0" style="-fx-text-fill: white; -fx-font-size: 16;" text="  Student Id :" />
-                                <TextField prefWidth="250.0" style="-fx-background-radius: 8;" />
+                                <Label prefHeight="36.0" prefWidth="144.0" style="-fx-text-fill: white; -fx-font-size: 16;" text="  Student name :" />
+                                <TextField fx:id="txtStudentname" prefWidth="250.0" style="-fx-background-radius: 8;" />
                             </HBox>
+                     <HBox alignment="CENTER_LEFT" spacing="10">
+                        <children>
+                           <Label prefHeight="30.0" prefWidth="171.0" style="-fx-text-fill: white; -fx-font-size: 16;" text="     Student  C-number:" />
+                           <TextField fx:id="txtStudentIdNumber" prefWidth="250.0" style="-fx-background-radius: 8;" />
+                        </children>
+                     </HBox>
+                     <HBox alignment="CENTER_LEFT" spacing="10">
+                        <children>
+                           <Label prefHeight="46.0" prefWidth="202.0" style="-fx-text-fill: white; -fx-font-size: 16;" text="                        Student Id  :" />
+                           <Label fx:id="lblStudentId" prefHeight="76.0" prefWidth="275.0" style="-fx-background-color: #dff9fb; -fx-background-radius: 5;" text="Id">
+                              <HBox.margin>
+                                 <Insets />
+                              </HBox.margin>
+                              <padding>
+                                 <Insets left="120.0" />
+                              </padding>
+                           </Label>
+                        </children>
+                     </HBox>
+                     <HBox alignment="CENTER_LEFT" spacing="10">
+                        <children>
+                           <Label prefHeight="146.0" prefWidth="431.0" />
+                               <CheckBox fx:id="conformboxid1" onAction="#conformbox1ONAction" prefHeight="68.0" prefWidth="137.0" style="-fx-text-fill: white;" text="Confirm" />
+                        </children>
+                     </HBox>
                         </children>
                     </VBox>
 
                     <!-- Table -->
-                    <TableView prefHeight="300.0" prefWidth="400.0" style="-fx-background-radius: 8;">
+                    <TableView fx:id="tblInstructors" prefHeight="300.0" prefWidth="400.0" style="-fx-background-radius: 8;">
                         <columns>
                             <TableColumn prefWidth="100.0" text="Id" />
                             <TableColumn prefWidth="150.0" text="Name" />
@@ -64,7 +89,7 @@
                         <Button onAction="#handleBefor" style="-fx-background-color: #273c75; -fx-text-fill: white; -fx-font-size: 18; -fx-background-radius: 50%;" text="←" />
                         <StackPane fx:id="pageHolder" prefHeight="250" prefWidth="500" style="-fx-background-color: #40739e; -fx-background-radius: 12; -fx-alignment: center;">
                             <children>
-                                <TableView fx:id="tableId" prefHeight="205.0" prefWidth="419.0">
+                                <TableView fx:id="tableKalanderId" prefHeight="205.0" prefWidth="419.0">
                                     <columns>
                                         <TableColumn prefWidth="200.0" text="Instructor" />
                                     </columns>
@@ -81,12 +106,11 @@
         </VBox>
 
         <!-- Course & Schedule Section -->
-        <GridPane hgap="20.0" layoutX="30.0" layoutY="520.0" prefHeight="342.0" prefWidth="670.0" style="-fx-padding: 20;" vgap="20.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="898.0">
+        <GridPane hgap="20.0" layoutX="30.0" layoutY="520.0" prefHeight="309.0" prefWidth="654.0" style="-fx-padding: 20;" vgap="20.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="914.0">
             <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" />
             </columnConstraints>
             <rowConstraints>
-                <RowConstraints vgrow="SOMETIMES" />
                 <RowConstraints vgrow="SOMETIMES" />
                 <RowConstraints vgrow="SOMETIMES" />
                 <RowConstraints vgrow="SOMETIMES" />
@@ -95,38 +119,27 @@
             <!-- Course -->
             <HBox alignment="CENTER_LEFT" spacing="20" GridPane.rowIndex="0">
                 <Label style="-fx-text-fill: white; -fx-font-size: 16;" text="Course :" />
-                <Label style="-fx-border-color: white; -fx-text-fill: white; -fx-padding: 5 15;" text="C007" />
-                <ChoiceBox prefWidth="200.0" />
+                <Label fx:id="lblCourseId" style="-fx-border-color: white; -fx-text-fill: white; -fx-padding: 5 15;" text="C007" />
+                <ChoiceBox fx:id="ChoisBoxCourseNamesId" prefWidth="200.0" />
             </HBox>
 
             <!-- Date -->
             <HBox alignment="CENTER_LEFT" spacing="20" GridPane.rowIndex="1">
                 <Label style="-fx-text-fill: white; -fx-font-size: 16;" text="Date :" />
-                <DatePicker prefWidth="200.0" />
+                <DatePicker fx:id="DatepikerId" prefWidth="200.0" />
             </HBox>
 
             <!-- Instructor -->
             <HBox alignment="CENTER_LEFT" spacing="20" GridPane.rowIndex="2">
                 <Label style="-fx-text-fill: white; -fx-font-size: 16;" text="Instructor :" />
-                <Label style="-fx-border-color: white; -fx-text-fill: white; -fx-padding: 5 15;" text="I007" />
-                <ChoiceBox prefWidth="200.0" />
-            </HBox>
-
-            <!-- Time -->
-            <HBox alignment="CENTER_LEFT" spacing="20" GridPane.rowIndex="3">
-                <Label prefHeight="27.0" prefWidth="65.0" style="-fx-text-fill: white; -fx-font-size: 16;" text="Time :" />
-                <Label style="-fx-border-color: white; -fx-text-fill: white; -fx-padding: 5 15;" text="8.00 am" />
-                <Button prefHeight="30.0" prefWidth="60.0" style="-fx-background-color: #44bd32; -fx-text-fill: white; -fx-background-radius: 8;" text="8.00" />
-                <Button prefHeight="30.0" prefWidth="60.0" style="-fx-background-color: #44bd32; -fx-text-fill: white; -fx-background-radius: 8;" text="9.00" />
-                <Button prefHeight="30.0" prefWidth="60.0" style="-fx-background-color: #44bd32; -fx-text-fill: white; -fx-background-radius: 8;" text="10.00" />
-                <Button prefHeight="30.0" prefWidth="60.0" style="-fx-background-color: #44bd32; -fx-text-fill: white; -fx-background-radius: 8;" text="11.00" />
-                <CheckBox prefHeight="51.0" prefWidth="99.0" style="-fx-text-fill: white;" text="Confirm" />
+                <Label fx:id="lblinstroctorId" style="-fx-border-color: white; -fx-text-fill: white; -fx-padding: 5 15;" text="I007" />
+                <ChoiceBox fx:id="choisboxInstructors" prefWidth="200.0" />
             </HBox>
         </GridPane>
 
         <!-- Book Now Button -->
-        <Button layoutX="1329.0" layoutY="885.0" prefHeight="66.0" prefWidth="200.0" style="-fx-background-color: #e58e26; -fx-text-fill: white; -fx-font-size: 18; -fx-background-radius: 12;" text="Book Now" />
-      <TableView layoutX="679.0" layoutY="533.0" prefHeight="309.0" prefWidth="837.0" AnchorPane.rightAnchor="40.0">
+        <Button fx:id="btnBooknow" layoutX="1329.0" layoutY="885.0" onAction="#btnBooknowONaction" prefHeight="66.0" prefWidth="200.0" style="-fx-background-color: #e58e26; -fx-text-fill: white; -fx-font-size: 18; -fx-background-radius: 12;" text="Book Now" />
+      <TableView fx:id="tbllessions" layoutX="679.0" layoutY="533.0" prefHeight="309.0" prefWidth="837.0" AnchorPane.rightAnchor="40.0">
         <columns>
           <TableColumn prefWidth="75.0" text="C1" />
           <TableColumn prefWidth="75.0" text="C2" />
@@ -140,6 +153,22 @@
             <Insets />
          </opaqueInsets>
       </TableView>
+
+         <!-- Time -->
+         <HBox alignment="CENTER_LEFT" layoutX="42.0" layoutY="853.0" prefHeight="98.0" prefWidth="1098.0" spacing="20">
+             <Label prefHeight="27.0" prefWidth="65.0" style="-fx-text-fill: white; -fx-font-size: 16;" text="Time :" />
+             <Label fx:id="lblAvelableTime" style="-fx-border-color: white; -fx-text-fill: white; -fx-padding: 5 15;" text="8.00 am" />
+             <Button fx:id="btneight" onAction="#btneightOnaction" prefHeight="30.0" prefWidth="60.0" style="-fx-background-color: #44bd32; -fx-text-fill: white; -fx-background-radius: 8;" text="8.00" />
+             <Button fx:id="btnnine" onAction="#btnnineOnAction" prefHeight="30.0" prefWidth="60.0" style="-fx-background-color: #44bd32; -fx-text-fill: white; -fx-background-radius: 8;" text="9.00" />
+             <Button fx:id="btnten" onAction="#btntenOnaction" prefHeight="30.0" prefWidth="60.0" style="-fx-background-color: #44bd32; -fx-text-fill: white; -fx-background-radius: 8;" text="10.00" />
+             <Button fx:id="btneleven" onAction="#btnelevenOnaction" prefHeight="30.0" prefWidth="60.0" style="-fx-background-color: #44bd32; -fx-text-fill: white; -fx-background-radius: 8;" text="11.00" />
+         <Button fx:id="btntuwell" onAction="#btnelevenOnaction" prefHeight="30.0" prefWidth="60.0" style="-fx-background-color: #44bd32; -fx-text-fill: white; -fx-background-radius: 8;" text="12.00" />
+         <Button fx:id="btnOne" onAction="#btnelevenOnaction" prefHeight="30.0" prefWidth="60.0" style="-fx-background-color: #44bd32; -fx-text-fill: white; -fx-background-radius: 8;" text="1.00" />
+         <Button fx:id="btnTwo" onAction="#btnelevenOnaction" prefHeight="30.0" prefWidth="60.0" style="-fx-background-color: #44bd32; -fx-text-fill: white; -fx-background-radius: 8;" text="2.00" />
+         <Button fx:id="btnThree" onAction="#btnelevenOnaction" prefHeight="30.0" prefWidth="60.0" style="-fx-background-color: #44bd32; -fx-text-fill: white; -fx-background-radius: 8;" text="3.00" />
+         <Button fx:id="btnFore" onAction="#btnelevenOnaction" prefHeight="30.0" prefWidth="60.0" style="-fx-background-color: #44bd32; -fx-text-fill: white; -fx-background-radius: 8;" text="4.00" />
+         <CheckBox fx:id="conformboxid2" onAction="#conformbox2ONAction" prefHeight="51.0" prefWidth="99.0" style="-fx-text-fill: white;" text="Confirm" />
+         </HBox>
     </children>
 
     <cursor>
