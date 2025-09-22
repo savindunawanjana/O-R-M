@@ -10,6 +10,7 @@ import edu.project.lernessschool.demo.Entyty.StudentEntyty;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
 import java.util.List;
 
@@ -21,7 +22,7 @@ public class LessionShedulDAOImpl implements LessionShedulDAO {
         // phone = 0 index, name = 1 index
         String studentPhone = nameAndPhoneNumber.get(1);
 
-        String studentName  =   nameAndPhoneNumber.get(0);
+        String studentName = nameAndPhoneNumber.get(0);
         System.out.println("studentPhone: " + studentPhone);
         System.out.println("studentName: " + studentName);
 
@@ -74,6 +75,59 @@ public class LessionShedulDAOImpl implements LessionShedulDAO {
         }
     }
 
+    @Override
+    public boolean savemethod(LessionsEntyty entyty) throws Exception {
+        Session session = FactoryConfigaretion.getInstance().getSession();
+        Transaction transaction = null;
+        System.out.println("====== dan inne save method eke====");
+        try {
+            transaction = session.beginTransaction();
+
+            System.out.println("====== dan inne session.persist(lessionsEntyty); eka laga====");
+            session.persist(entyty);
+            System.out.println(true);
+            System.out.println("====== dan inne session.persist(lessionsEntyty); eka  yata====");
+
+            transaction.commit();
+            return true;
+
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            e.printStackTrace(); // Replace with proper logging later
+            return false;
+
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
+    }
+
+    @Override
+    public List<LessionsEntyty> getReleventLessionObjects(String courseId, String date, String time, String instructorId) throws Exception {
+        Session session = FactoryConfigaretion.getInstance().getSession();
+        try {
+            String hql = "FROM LessionsEntyty l " +
+                    "WHERE l.course.courseId = :courseId " +
+                    "AND l.date = :date " +
+                    "AND l.time = :time " +
+                    "AND l.instructor.instructorId = :instructorId";
+            Query<LessionsEntyty> query = session.createQuery(hql, LessionsEntyty.class);
+            query.setParameter("courseId", courseId);
+            query.setParameter("date", date); // assuming date is in "YYYY-MM-DD"
+            query.setParameter("time", time);
+            query.setParameter("instructorId", instructorId);
+            return query.list();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return List.of();
+        } finally {
+            session.close();
+        }
+    }
+
 
 
     @Override
@@ -95,6 +149,7 @@ public class LessionShedulDAOImpl implements LessionShedulDAO {
     public Boolean save(LessionsEntyty lessionsEntyty) throws Exception {
         return null;
     }
+
 
     @Override
     public String getNextId() throws Exception {

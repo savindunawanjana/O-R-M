@@ -1,5 +1,10 @@
 package edu.project.lernessschool.demo.Bo.Util;
 
+import edu.project.lernessschool.demo.Dao.Custom.CourseDAO;
+import edu.project.lernessschool.demo.Dao.Custom.InstructorDAO;
+import edu.project.lernessschool.demo.Dao.Custom.StudentRegistationDAO;
+import edu.project.lernessschool.demo.Dao.DAOFactory;
+import edu.project.lernessschool.demo.Dao.DAOTypes;
 import edu.project.lernessschool.demo.Dto.*;
 import edu.project.lernessschool.demo.Entyty.*;
 
@@ -7,6 +12,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EntytyDtoConverter {
+    private InstructorDAO instructorDAO = DAOFactory.getInstance().getDAO(DAOTypes.INSTRUCTOR);
+    private CourseDAO courseDAO = DAOFactory.getInstance().getDAO(DAOTypes.COURSE);
+    private StudentRegistationDAO studentRegistationDAO = DAOFactory.getInstance().getDAO(DAOTypes.STUDENTREGISTATION);
+
+
     public UserEntyty getUserEnty(UserDto dto) {
 
         UserEntyty userEnty = new UserEntyty(
@@ -143,8 +153,7 @@ public class EntytyDtoConverter {
 //    ===================================================================
 
 
-
-    public Enrolment getEnrolmentDto( EnrollmentEntyty entyty ) {
+    public Enrolment getEnrolmentDto(EnrollmentEntyty entyty) {
 
         Enrolment enrolment = new Enrolment();
 
@@ -160,8 +169,50 @@ public class EntytyDtoConverter {
     }
 
 
+//    ===================================================================
+
+    public LessionsDto getLessionDto(LessionsEntyty entyty) {
+
+        LessionsDto lessionDto = new LessionsDto();
+        lessionDto.setInstructorId(entyty.getInstructor().getInstructorId());
+        lessionDto.setCourseId(entyty.getCourse().getCourseId());
+        lessionDto.setStudentId(entyty.getStudent().getStudentId());
+        lessionDto.setStatus(entyty.getStatus());
+        lessionDto.setTime(entyty.getTime());
+        lessionDto.setDate(entyty.getDate());
 
 
+        return lessionDto;
+    }
+
+
+    public LessionsEntyty getLessionEntyty(LessionsDto dto) {
+
+        LessionsEntyty lessionsEntyty = new LessionsEntyty();
+//        InstructorEntyty instructorEntyty = null;
+//        CourseEntyty courseEntyty = null;
+//        StudentEntyty studentEntyty = null;
+
+        try {
+//            instructorEntyty = instructorDAO.getInstructorEntyById(dto.getInstructorId());
+//            courseEntyty = courseDAO.getCoursEntytyById(dto.getCourseId());
+//            studentEntyty = studentRegistationDAO.getStudentEntytyById(dto.getStudentId());
+
+            lessionsEntyty.setInstructor(instructorDAO.getInstructorEntyById(dto.getInstructorId()));
+            lessionsEntyty.setCourse(courseDAO.getCoursEntytyById(dto.getCourseId()));
+            lessionsEntyty.setStudent(studentRegistationDAO.getStudentEntytyById(dto.getStudentId()));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+        lessionsEntyty.setStatus(dto.getStatus());
+        lessionsEntyty.setTime(dto.getTime());
+        lessionsEntyty.setDate(dto.getDate());
+
+
+        return lessionsEntyty;
+    }
 
 
 }

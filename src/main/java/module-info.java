@@ -22,6 +22,8 @@ module edu.project.lernessschool.demo {
     requires jdk.xml.dom;
 //    requires edu.project.lernessschool.demo;
 //    requires edu.project.lernessschool.demo;
+//    requires edu.project.lernessschool.demo;
+//    requires edu.project.lernessschool.demo;
 
 
     // Opens packages for reflection

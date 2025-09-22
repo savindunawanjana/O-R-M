@@ -177,4 +177,27 @@ public class StudentRegistationDAOImpl implements StudentRegistationDAO {
         }
         return course;
     }
+
+    @Override
+    public StudentEntyty getStudentEntytyById(String id) {
+        Session session = FactoryConfigaretion.getInstance().getSession();
+        Transaction transaction = null;
+        StudentEntyty studentEntyty = null;
+
+        try {
+            transaction = session.beginTransaction();
+
+            studentEntyty= session.get(StudentEntyty.class, id);
+
+            transaction.commit();
+
+        } catch (Exception e) {
+            if (transaction != null) transaction.rollback();
+            throw e;
+        } finally {
+            session.close();
+        }
+
+        return studentEntyty;
+    }
 }

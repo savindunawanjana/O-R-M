@@ -8,5 +8,5 @@ import edu.project.lernessschool.demo.Entyty.StudentEntyty;
 public interface StudentRegistationDAO extends CrudDAO<StudentEntyty> {
 
     CourseEntyty getCourseEntyByname(String name);
-
+    StudentEntyty getStudentEntytyById(String id);
 }

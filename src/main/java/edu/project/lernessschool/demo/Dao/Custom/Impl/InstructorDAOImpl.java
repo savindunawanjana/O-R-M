@@ -181,4 +181,28 @@ public class InstructorDAOImpl implements InstructorDAO {
     public String findNameById(String Id) throws Exception {
         return "";
     }
+
+    @Override
+    public InstructorEntyty getInstructorEntyById(String id) throws Exception {
+        Session session = FactoryConfigaretion.getInstance().getSession();
+        Transaction transaction = null;
+        InstructorEntyty instructor = null;
+
+        try {
+            transaction = session.beginTransaction();
+
+            instructor = session.get(InstructorEntyty.class, id);
+
+            transaction.commit();
+
+        } catch (Exception e) {
+            if (transaction != null) transaction.rollback();
+            throw e;
+        } finally {
+            session.close();
+        }
+
+        return instructor;
+    }
+
 }

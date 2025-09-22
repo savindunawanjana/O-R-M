@@ -16,6 +16,6 @@ public class LessionsDto {
     private String studentId;
     private String status;
     private String time;
-    private String Date;
+    private String date;
 
 }

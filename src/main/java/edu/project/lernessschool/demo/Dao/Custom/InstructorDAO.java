@@ -6,4 +6,7 @@ import edu.project.lernessschool.demo.Entyty.InstructorEntyty;
 
 public interface InstructorDAO extends CrudDAO<InstructorEntyty> {
 
+    InstructorEntyty getInstructorEntyById(String id) throws Exception;
+
+
 }

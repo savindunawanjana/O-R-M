@@ -3,6 +3,7 @@ package edu.project.lernessschool.demo.Dao.Custom.Impl;
 import edu.project.lernessschool.demo.Configeretion.FactoryConfigaretion;
 import edu.project.lernessschool.demo.Dao.Custom.CourseDAO;
 import edu.project.lernessschool.demo.Entyty.CourseEntyty;
+import edu.project.lernessschool.demo.Entyty.InstructorEntyty;
 import edu.project.lernessschool.demo.Entyty.UserEntyty;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -140,5 +141,28 @@ public class CourseDAOImpl implements CourseDAO {
             session.close();
         }
 
+    }
+
+    @Override
+    public CourseEntyty getCoursEntytyById(String id) {
+        Session session = FactoryConfigaretion.getInstance().getSession();
+        Transaction transaction = null;
+        CourseEntyty courseEntyty = null;
+
+        try {
+            transaction = session.beginTransaction();
+
+            courseEntyty= session.get(CourseEntyty.class, id);
+
+            transaction.commit();
+
+        } catch (Exception e) {
+            if (transaction != null) transaction.rollback();
+            throw e;
+        } finally {
+            session.close();
+        }
+
+        return courseEntyty;
     }
 }
