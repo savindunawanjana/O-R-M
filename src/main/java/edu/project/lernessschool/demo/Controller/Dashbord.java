@@ -71,7 +71,7 @@ public class Dashbord implements Initializable {
     }
 
     public void onactionPaymentbtn(ActionEvent actionEvent) {
-        navigate("/View/calander.fxml");
+        navigate("/View/Paytment.fxml");
     }
 
     public void onactionLogout(ActionEvent actionEvent) throws IOException {

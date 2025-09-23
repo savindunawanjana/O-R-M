@@ -24,6 +24,7 @@ public class BOFactry {
             case STUDENTREGISTEION -> (Hello) new StudentRegisterBOImpl();
             case COURSE -> (Hello) new CourseBOImpl();
             case LESSIONS -> (Hello) new LessionShedulBOImpl();
+            case PAYMENTS ->(Hello) new PaymentBOimpl();
         };
     }
 

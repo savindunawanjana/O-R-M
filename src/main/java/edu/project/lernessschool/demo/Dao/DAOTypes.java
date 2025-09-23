@@ -5,5 +5,6 @@ public enum DAOTypes {
     INSTRUCTOR,
     STUDENTREGISTATION,
     COURSE,
-    LESSIONS
+    LESSIONS,
+    PAYMENTS
 }

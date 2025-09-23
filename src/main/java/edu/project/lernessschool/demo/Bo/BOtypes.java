@@ -7,6 +7,7 @@ public enum BOtypes {
     INSTRUCTOR,
     STUDENTREGISTEION,
     COURSE,
-    LESSIONS
+    LESSIONS,
+    PAYMENTS
 
 }

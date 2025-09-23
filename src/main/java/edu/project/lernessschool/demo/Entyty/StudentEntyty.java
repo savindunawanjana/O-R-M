@@ -36,7 +36,8 @@ private Date registrationDate;
 
     @OneToMany(mappedBy = "student")
     private List<LessionsEntyty> lessionslist;
-
-
+//    student
+    @OneToMany(mappedBy = "student")
+    private List<PaymentEntyty> paymentEnties;
 
 }

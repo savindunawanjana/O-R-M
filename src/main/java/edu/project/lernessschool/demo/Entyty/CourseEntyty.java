@@ -31,6 +31,10 @@ public class CourseEntyty {
     @OneToMany(mappedBy = "course")
     private List<LessionsEntyty> lessionslist;
 
+//    course
+    @OneToMany(mappedBy = "course")
+    private List<PaymentEntyty> paymentEnties;
+
 
 
 }

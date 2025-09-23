@@ -22,6 +22,9 @@ module edu.project.lernessschool.demo {
     requires jdk.xml.dom;
 //    requires edu.project.lernessschool.demo;
 //    requires edu.project.lernessschool.demo;
+//    requires jakarta.jakartaee.web.api;
+//    requires edu.project.lernessschool.demo;
+//    requires edu.project.lernessschool.demo;
 //    requires edu.project.lernessschool.demo;
 //    requires edu.project.lernessschool.demo;
 

@@ -19,6 +19,7 @@ public class FactoryConfigaretion {
         configuration.addAnnotatedClass(EnrollmentEntyty.class);
         configuration.addAnnotatedClass(CourseEntyty.class);
         configuration.addAnnotatedClass(LessionsEntyty.class);
+        configuration.addAnnotatedClass(PaymentEntyty.class);
 
         sessionFactory= configuration.buildSessionFactory();
     }
