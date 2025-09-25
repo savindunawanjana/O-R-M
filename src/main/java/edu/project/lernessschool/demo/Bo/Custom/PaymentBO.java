@@ -8,5 +8,7 @@ import java.util.List;
 public interface PaymentBO extends SuperBO {
 
     String getStudentIdNumber(String Ponenumber);
-  List <Course> getallCoursesForStudent(String idNumber);
+    List <Course> getallCoursesForStudent(String idNumber);
+    String getFirstPayment(String StudentId , String courseId);
+
 }

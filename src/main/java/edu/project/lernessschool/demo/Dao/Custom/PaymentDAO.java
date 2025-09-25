@@ -11,4 +11,5 @@ import java.util.List;
 public interface PaymentDAO extends CrudDAO<PaymentEntyty> {
     String getStudentIdNumber(String ponenumber) throws Exception;
     List<EnrollmentEntyty> getallCoursesForStudent(String idNumber);
+    String getFirstPayment(String StudentId , String courseId)throws Exception;
 }

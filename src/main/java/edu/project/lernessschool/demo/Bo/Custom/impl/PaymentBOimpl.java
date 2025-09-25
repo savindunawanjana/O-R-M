@@ -15,7 +15,8 @@ import java.util.List;
 
 public class PaymentBOimpl implements PaymentBO {
 
-    private PaymentDAO  paymentDAO = DAOFactory.getInstance().getDAO(DAOTypes.PAYMENTS);
+    private PaymentDAO paymentDAO = DAOFactory.getInstance().getDAO(DAOTypes.PAYMENTS);
+
     @Override
     public String getStudentIdNumber(String Ponenumber) {
         try {
@@ -42,17 +43,32 @@ public class PaymentBOimpl implements PaymentBO {
     public List<Course> getallCoursesForStudent(String idNumber) {
 
         List<Course> courses = new ArrayList<>();
-                                List<EnrollmentEntyty>enrollmentEntyties =  paymentDAO.getallCoursesForStudent(idNumber);
+        List<EnrollmentEntyty> enrollmentEntyties = paymentDAO.getallCoursesForStudent(idNumber);
 
         for (EnrollmentEntyty entyty : enrollmentEntyties) {
 
-            EntytyDtoConverter entytyDtoConverter= new EntytyDtoConverter();
-        Course course =entytyDtoConverter.getCourseDto(entyty.getCourse());
+            EntytyDtoConverter entytyDtoConverter = new EntytyDtoConverter();
+            Course course = entytyDtoConverter.getCourseDto(entyty.getCourse());
             courses.add(course);
 
         }
 
         return courses;
+
+    }
+
+    @Override
+    public String getFirstPayment(String StudentId, String courseId) {
+        try {
+            String payment = paymentDAO.getFirstPayment(StudentId, courseId);
+            return payment;
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+            return null;
+        }
+
 
     }
 }

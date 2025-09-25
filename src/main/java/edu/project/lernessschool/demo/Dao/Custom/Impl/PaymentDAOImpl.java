@@ -50,7 +50,6 @@ public class PaymentDAOImpl implements PaymentDAO {
         Session session = FactoryConfigaretion.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
         try {
-            // HQL query to fetch studentId by name + phone
 
 //            StudentEntyty
             String studentId = session.createQuery(
@@ -95,4 +94,44 @@ public class PaymentDAOImpl implements PaymentDAO {
             session.close();
         }
     }
+
+    @Override
+    public String getFirstPayment(String studentId, String courseId) {
+        Session session = FactoryConfigaretion.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        System.out.println("dan inne ekkeee=====================");
+
+        try {
+            System.out.println("dan inne ============quariya uda=========");
+            EnrollmentEntyty enrollment = session.createQuery(
+                            "FROM EnrollmentEntyty e " +
+                                    "WHERE e.student.studentId = :studentId AND e.course.courseId = :courseId",
+                            EnrollmentEntyty.class)
+                    .setParameter("studentId", studentId)
+                    .setParameter("courseId", courseId)
+                    .uniqueResult();
+            System.out.println("dan inne ============quariya yata=========");
+            System.out.println(enrollment.toString());
+            System.out.println(enrollment);
+            System.out.println("dan inne ============quariya run karama aut puts=========");
+
+            transaction.commit();
+
+            if (enrollment != null) {
+                System.out.println("=============dsds================");
+                System.out.println(enrollment.getFirstPayment());
+                System.out.println("=============dsfd================");
+                return String.valueOf(enrollment.getFirstPayment()); // return as String
+
+            } else {
+                return null; // no matching record
+            }
+        } catch (Exception e) {
+            transaction.rollback();
+            throw e;
+        } finally {
+            session.close();
+        }
+    }
+
 }
